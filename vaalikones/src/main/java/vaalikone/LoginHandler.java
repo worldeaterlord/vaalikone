@@ -61,7 +61,7 @@ public class LoginHandler extends HttpServlet {
 	    }  
 	    else{  
 	    	out.println("kukkuu");
-	    	response.sendRedirect(request.getContextPath() + "/AdminPage");
+	    	response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
 	    }  
 	          
 	    out.close();  

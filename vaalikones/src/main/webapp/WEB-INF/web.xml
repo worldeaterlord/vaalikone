@@ -19,7 +19,7 @@
   
   <servlet>
   <servlet-name>AdminPage</servlet-name>
-  <servlet-class>AdminPage</servlet-class>
+  <jsp-file>/AdminPage.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
   	<servlet-name>AdminPage</servlet-name>
