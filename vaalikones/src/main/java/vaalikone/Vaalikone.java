@@ -115,12 +115,20 @@ public class Vaalikone extends HttpServlet {
             if (kysymys_id < 20) {
                 try {
                     //Hae haluttu kysymys tietokannasta
+                	
+                	
+                	
+                	Query lkm=em.createNativeQuery("select count(*) from kysymykset");
+                	List ll=lkm.getResultList();
+                	Long lukumaara=(Long)(ll.get(0));
+                	
                     Query q = em.createQuery(
                             "SELECT k FROM Kysymykset k WHERE k.kysymysId=?1");
                     q.setParameter(1, kysymys_id);
                     //Lue haluttu kysymys listaan
                     List<Kysymykset> kysymysList = q.getResultList();
                     request.setAttribute("kysymykset", kysymysList);
+                    request.setAttribute("kysymyslkm", lukumaara);
                     request.getRequestDispatcher("/vastaus.jsp")
                             .forward(request, response);
 

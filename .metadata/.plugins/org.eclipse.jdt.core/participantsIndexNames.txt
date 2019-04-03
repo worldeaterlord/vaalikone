@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikone\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1339937102.index
+\vaalikones\src\main\java
 C:\Users\ioko\eclipse-vaalikone\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1339937102.index
 \vaalikones\src\main\java
 C:\Users\ioko\eclipse-vaalikone\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\905011140.index

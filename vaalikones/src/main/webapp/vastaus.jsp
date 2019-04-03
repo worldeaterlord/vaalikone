@@ -25,9 +25,11 @@
  <%
             @SuppressWarnings("unchecked") 
             List<Kysymykset> kysymykset = (List<Kysymykset>)request.getAttribute("kysymykset");
+ 
+ 
             for (Kysymykset kysymys : kysymykset) { %>
             <div class="kysymys">
-                <%= kysymys.getKysymysId() %> / 19 <br>
+                <%= kysymys.getKysymysId() %> / <%= request.getAttribute("kysymyslkm") %> <br>
                 <%= kysymys.getKysymys() %>
                  </div>
                 <form action="Vaalikone" id="vastausformi">
