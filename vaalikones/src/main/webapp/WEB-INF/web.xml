@@ -11,19 +11,24 @@
   <servlet-mapping>
     <servlet-name>Vaalikone</servlet-name>
     <url-pattern>/Vaalikone</url-pattern>
-    
   </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-  
   <servlet>
-  <servlet-name>AdminPage</servlet-name>
-  <jsp-file>/AdminPage.jsp</jsp-file>
+    <servlet-name>AdminPage</servlet-name>
+    <jsp-file>/AdminPage.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>AdminPage</servlet-name>
-	<url-pattern>/AdminPage</url-pattern>
+    <servlet-name>AdminPage</servlet-name>
+    <url-pattern>/AdminPage</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <servlet-name>PoistaEhdokas</servlet-name>
+    <servlet-class>vaalikone.PoistaEhdokas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PoistaEhdokas</servlet-name>
+    <url-pattern>/PoistaEhdokas</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -38,6 +38,7 @@ import persist.Vastaukset;
  * @author Jonne
  */
 public class Vaalikone extends HttpServlet {
+	
 
 	
     //hae java logger-instanssi
