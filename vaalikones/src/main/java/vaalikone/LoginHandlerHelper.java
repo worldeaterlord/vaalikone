@@ -11,22 +11,27 @@ public class LoginHandlerHelper {
 		String pwe =null;
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone","root","");
-			System.out.println("1");
-			String query = "SELECT * FROM kayttajat";
-			Statement st = con.createStatement();
-			System.out.println(st);
-			ResultSet rs = st.executeQuery(query);
-			rs.next();
-			System.out.println(rs);
 			
-			System.out.println("4");
+			Statement st = con.createStatement();
+			
+			String query = "SELECT * FROM kayttajat";
+
+			ResultSet rs = st.executeQuery(query);
+			
+			rs.next();
+
 			une = rs.getString("tunnus");
 			pwe = rs.getString("salasana");
-			System.out.println(une + pwe + "asIIUASFYUSAFAFSI");
+			
+			if(un.equals(une)&&pw.equals(pwe)) {
+
+				return true;
+				
+			}
 			st.close();
 		}catch(Exception e){
 			
 		}
-		return true;
+		return false;
 	}
 }

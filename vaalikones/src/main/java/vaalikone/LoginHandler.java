@@ -47,24 +47,30 @@ public class LoginHandler extends HttpServlet {
 
 		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
-	    
-	    String a = "dev";
-	    String b = "qwerty";
 	          
 	    String n=request.getParameter("uname");  
-	    String p=request.getParameter("password"); 
-	    LoginHandlerHelper.check(a, b);
-	    if(!n.equals(a) && !p.equals(b)){  
-	        out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");  
+	    String p=request.getParameter("password");
+	    
+	    if(LoginHandlerHelper.check(n, p)) {
+	    	response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
+	    }else {
+	    	out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");  
 	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
 	        rd.include(request,response);  
-	    }  
-	    else{  
-	    	out.println("kukkuu");
-
-	    	response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
-
-	    }  
+	    }
+	    
+//	    
+//	    if(!n.equals(a) && !p.equals(b)){  
+//	        out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");  
+//	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
+//	        rd.include(request,response);  
+//	    }  
+//	    else{  
+//	    	out.println("kukkuu");
+//
+//	    	response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
+//
+//	    }  
 	          
 	    out.close();  
 	    }  
