@@ -11,8 +11,10 @@
   <servlet-mapping>
     <servlet-name>Vaalikone</servlet-name>
     <url-pattern>/Vaalikone</url-pattern>
+    
   </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
+
 </web-app>
