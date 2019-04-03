@@ -10,9 +10,19 @@
 <body>
 <h2>Tervetuloa Admin sivulle</h2>
 
-<div>Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><br><br>
-<button>Muokkaa ehdokasta</button><br><br>
-<button>Poista ehdokas</button><br><br>
-<button>Lisää ehdokas</button><br><br>
+<div>
+Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><br>
+	<form action=MuokkaaEhdokas id="vastausformi">
+  	<input type="submit" id="MuokkaaEhdokasta" value="Muokkaa ehdokas" />
+  	</form>
+  	
+	<form action="PoistaEhdokas" id="vastausformi">
+	<input type="submit" id="PoistaEhdokas" value="Poista ehdokas" />
+	</form>
+	
+	<form action="LisaaEhdokas" id="vastausformi">
+	<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
+ 	</form>
+ 	
 </body>
 </html>
