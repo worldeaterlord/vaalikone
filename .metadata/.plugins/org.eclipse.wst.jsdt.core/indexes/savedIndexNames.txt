@@ -1,9 +1,7 @@
 INDEX VERSION 1.4+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikone\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3986652274.index
 3366501974.index
+3986652274.index
 3527645566.index
-1339937102.index
 1647795792.index
-1339937102.index
 1991194504.index
 3412772960.index
