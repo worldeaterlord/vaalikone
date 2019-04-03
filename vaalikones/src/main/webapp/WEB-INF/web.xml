@@ -16,5 +16,14 @@
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
+  
+  <servlet>
+  <servlet-name>AdminPage</servlet-name>
+  <servlet-class>AdminPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminPage</servlet-name>
+	<url-pattern>/AdminPage</url-pattern>
+  </servlet-mapping>
 
 </web-app>

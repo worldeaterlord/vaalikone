@@ -44,11 +44,7 @@ public class LoginHandler extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Loginhandler").append(request.getContextPath());
-//		String pw = null;
-//		String un = null;
-//	    PrintWriter out = response.getWriter();  
+
 		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
 	    
@@ -59,30 +55,15 @@ public class LoginHandler extends HttpServlet {
 	    String p=request.getParameter("password"); 
 	    
 	    if(!n.equals(a) && !p.equals(b)){  
-	        out.println(n + p);  
+	        out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");  
 	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
 	        rd.include(request,response);  
 	    }  
 	    else{  
 	    	out.println("kukkuu");
-	    	response.sendRedirect(request.getContextPath() + "/Adminpage");
+	    	response.sendRedirect(request.getContextPath() + "/AdminPage");
 	    }  
 	          
 	    out.close();  
 	    }  
-
-//		try {
-//			pw = request.getParameter("password");
-//			un = request.getParameter("uname");
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//		if(un=="dev") {
-//			out.println("K‰ytt‰j‰ oikein");
-//			if(pw=="qwerty") {
-//		        RequestDispatcher rd=request.getRequestDispatcher("AdminPage");  
-//		        rd.forward(request, response);
-//			}
-//		}
-		
 	}
