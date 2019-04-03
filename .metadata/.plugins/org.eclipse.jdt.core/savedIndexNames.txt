@@ -49,13 +49,11 @@ INDEX VERSION 1.131+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikon
 1391346088.index
 899518542.index
 676123451.index
-3366501974.index
 904289187.index
 2508711629.index
 3698278747.index
 2625902985.index
 1359708031.index
-2696432407.index
 4261354019.index
 3159763986.index
 4018734466.index
