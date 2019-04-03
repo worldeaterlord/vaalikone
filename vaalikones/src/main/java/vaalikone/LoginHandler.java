@@ -57,7 +57,7 @@ public class LoginHandler extends HttpServlet {
 	          
 	    String n=request.getParameter("uname");  
 	    String p=request.getParameter("password"); 
-	    
+	    LoginHandlerHelper.check(a, b);
 	    if(!n.equals(a) && !p.equals(b)){  
 	        out.println(n + p);  
 	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
@@ -65,7 +65,7 @@ public class LoginHandler extends HttpServlet {
 	    }  
 	    else{  
 	    	out.println("kukkuu");
-	    	response.sendRedirect(request.getContextPath() + "/Adminpage");
+	    	response.sendRedirect(request.getContextPath() + "/AdminPage");
 	    }  
 	          
 	    out.close();  
