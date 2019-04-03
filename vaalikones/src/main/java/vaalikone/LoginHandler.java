@@ -58,19 +58,7 @@ public class LoginHandler extends HttpServlet {
 	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
 	        rd.include(request,response);  
 	    }
-	    
-//	    
-//	    if(!n.equals(a) && !p.equals(b)){  
-//	        out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");  
-//	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
-//	        rd.include(request,response);  
-//	    }  
-//	    else{  
-//	    	out.println("kukkuu");
-//
-//	    	response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
-//
-//	    }  
+	     
 	          
 	    out.close();  
 	    }  
