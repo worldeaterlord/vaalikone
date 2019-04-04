@@ -48,10 +48,10 @@ public class PoistaEhdokas extends HttpServlet {
 			PrintWriter id = response.getWriter();
 
 			ResultSet rs = st.executeQuery(query);
-			
-			id.println("<form action='AdminPage'method='POST'/>");
-			id.println("<input type = 'submit' value = 'takaisin'</input> ");
-			id.println(" <BR>");
+//			//Tässä on takaisin nappulan tietoja jotka rikkoo ton deleten...
+//			id.println("<form action='AdminPage'method='POST'/>");
+//			id.println("<input type = 'submit' value = 'takaisin'</input> ");
+//			id.println(" <BR>");
 
 			while (rs.next()) {
 				PrintWriter out = response.getWriter();
@@ -66,7 +66,7 @@ public class PoistaEhdokas extends HttpServlet {
 			}
 			id.println("<form action='PoistaHandler'method='POST'/>");
 			id.println("<input type = 'text' name='poista' </input>");
-			id.println("<input type = 'submit' value = 'delete'</input> ");
+			id.println("<input type = 'submit' value = 'delete'</input>");
 			st.close();
 
 		} catch (Exception e) {

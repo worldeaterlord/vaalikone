@@ -1,22 +1,19 @@
 package vaalikone;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
+ 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+ 
 
 /**
  * Servlet implementation class LisaaEhdokasHandler
@@ -24,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "LisaaEhdokasHandler", urlPatterns = { "/LisaaEhdokasHandler" })
 public class LisaaEhdokasHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -40,6 +37,7 @@ public class LisaaEhdokasHandler extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -49,50 +47,33 @@ public class LisaaEhdokasHandler extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		response.setContentType("text/html;charset=UTF-8");
+		String Newuser = request.getParameter("LisaaSubmit");
+
+			//TÄHÄN OON JÄÄNY, EI TOIMI :(
 
 		Connection con = null;
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
+			Statement stmt = con.createStatement();
 			
+			String query = "insert into ehdokkaat (EHDOKAS_ID, SUKUNIMI, ETUNIMI, PUOLUE, KOTIPAIKKAKUNTA, IKA, MIKSI_EDUSKUNTAAN, MITÄ_ASIOITA_HALUAT_EDISTAA, AMMATTI)" + " values ('?', '?', '?', '?', '?', '?', '?', '?', '?'))";
+		    PreparedStatement preparedStmt = con.prepareStatement(query);
+		    preparedStmt.setString (1, "EHDOKAS_ID");
+		    preparedStmt.setString (2, "SUKUNIMI");
+		    preparedStmt.setString (3, "ETUNIMI");
+		    preparedStmt.setString (4, "PUOLUE");
+		    preparedStmt.setString (5, "KOTIPAIKKAKUNTA");
+		    preparedStmt.setString (6, "IKA");
+		    preparedStmt.setString (7, "MIKSI_EDUSKUNTAAN");
+		    preparedStmt.setString (8, "MITÄ_ASIOITA_HALUAT_EDISTAA");
+		    preparedStmt.setString (9, "AMMATTI");
 
-			// Create a SQL query to insert data into demo table
-			// demo table consists of two columns, so two '?' is used
-			PreparedStatement st = con.prepareStatement("insert into ehdokas values(?, ?, ? ,? ,? ,? ,? ,? ,?)");
+		    preparedStmt.execute();
+			//PreparedStatement pst = con.prepareStatement("insert into ehdokkaat values(?,?,?,?,?,?,?,?,?)");
+		      con.close();
 
-			// For the first parameter,
-			// get the data using request object
-			// sets the data to st pointer
-			st.setInt(1, Integer.valueOf(request.getParameter("EHDOKAS_ID")));
-
-			st.setString(2, request.getParameter("SUKUNIMI"));
-
-			st.setString(3, request.getParameter("ETUNIMI"));
-
-			st.setString(4, request.getParameter("PUOLUE"));
-
-			st.setString(5, request.getParameter("KOTIPAIKKAKUNTA"));
-
-			st.setInt(6, Integer.valueOf(request.getParameter("IKA")));
-
-			st.setString(7, request.getParameter("MIKSI_EDUSKUNTAAN"));
-
-			st.setString(8, request.getParameter("MITA_ASIOITA_HALUAT_EDISTAA"));
-
-			st.setString(9, request.getParameter("AMMATTI"));
-
-			// Execute the insert command using executeUpdate()
-			// to make changes in database
-			st.executeUpdate();
-
-			// Close all the connections
-			st.close();
-			con.close();
-
-			// Get a writer pointer
-			// to display the succesful result
-			PrintWriter out = response.getWriter();
-			out.println("<html><body><b>Successfully Inserted" + "</b></body></html>");
+			response.sendRedirect(request.getContextPath() + "/LisaaEhdokas");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

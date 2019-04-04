@@ -58,10 +58,11 @@ public class LisaaEhdokas extends HttpServlet {
 				out.println(" ");
 
 			}
+			
 			id.println("---------------------------------------");
 			id.println("<BR>");
 
-			id.println("<form action='LisaaEhdokasHandler'method='POST'/>");
+			id.println("<form action='./LisaaEhdokasHandler'method='POST'/>");
 			id.println("Ehdokas id");
 			id.println("<input type = 'text' name='EHDOKAS_ID' </input>");
 			id.println("<BR>");
@@ -89,7 +90,7 @@ public class LisaaEhdokas extends HttpServlet {
 			id.println("Ammatti");
 			id.println("<input type = 'text' name='AMMATTI' </input>");
 			id.println("<BR>");
-			id.println("<input type = 'submit' value = 'Lisaaehdokas'</input> ");
+			id.println("<input type = 'submit' value = 'LisaaSubmit'</input> ");
 
 			st.close();
 

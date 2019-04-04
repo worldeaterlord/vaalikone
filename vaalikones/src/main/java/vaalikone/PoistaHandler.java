@@ -41,14 +41,16 @@ public class PoistaHandler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String a = request.getParameter("takaisin");
-
-        if (a != null && a.equals("confirm")) {
-            response.sendRedirect("/Initial");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/AdminPage.jsp");
-            dispatcher.forward(request, response);
-            System.out.println("TESTI");
-        }
+		
+		//Tässä on takaisin nappulan tietoja jotka rikkoo ton deleten...
+//		String a = request.getParameter("takaisin");
+//
+//        if (a != null && a.equals("confirm")) {
+//           // response.sendRedirect("/Initial");
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("/AdminPage.jsp");
+//            dispatcher.forward(request, response);
+//            System.out.println("TESTI");
+//        }
 
 	}
 
@@ -64,14 +66,10 @@ public class PoistaHandler extends HttpServlet {
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			Statement stmt = con.createStatement();
-
 			String sql = "delete from ehdokkaat where EHDOKAS_ID='?'";
 			stmt.executeUpdate(("DELETE FROM ehdokkaat WHERE EHDOKAS_ID = \"" + poista + "\""));
-			System.out.println("Ehdokkaan tiedot poistettu onnistuneesti");
-			
 			response.sendRedirect(request.getContextPath() + "/PoistaEhdokas");
-
-
+			System.out.println("Ehdokkaan tiedot poistettu onnistuneesti");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
