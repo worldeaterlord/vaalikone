@@ -44,7 +44,7 @@ public class PoistaHandler extends HttpServlet {
 		String a = request.getParameter("takaisin");
 
         if (a != null && a.equals("confirm")) {
-            //response.sendRedirect("/Initial");
+            response.sendRedirect("/Initial");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/AdminPage.jsp");
             dispatcher.forward(request, response);
             System.out.println("TESTI");
@@ -65,10 +65,10 @@ public class PoistaHandler extends HttpServlet {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			Statement stmt = con.createStatement();
 
-			String delete = "delete from ehdokkaat where EHDOKAS_ID='1'";
-			stmt.executeUpdate(("DELETE FROM `ehdokkaat` WHERE `EHDOKAS_ID` = \"" + poista + "\""));
+			String sql = "delete from ehdokkaat where EHDOKAS_ID='?'";
+			stmt.executeUpdate(("DELETE FROM ehdokkaat WHERE EHDOKAS_ID = \"" + poista + "\""));
 			System.out.println("Ehdokkaan tiedot poistettu onnistuneesti");
-
+			
 			response.sendRedirect(request.getContextPath() + "/PoistaEhdokas");
 
 
