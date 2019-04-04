@@ -24,5 +24,9 @@ Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><b
 	<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
  	</form>
  	
+ 	<form action="KorjaaTietokanta" class="vastausformi">
+	<input type="submit" id="KorjaaTietokanta" value="Korjaa tietokanta" />
+ 	</form>
+ 	
 </body>
 </html>

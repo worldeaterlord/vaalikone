@@ -51,7 +51,7 @@ public class LisaaEhdokasHandler extends HttpServlet {
 		String Newuser = request.getParameter("LisaaSubmit");
 
 			//TÄHÄN OON JÄÄNY, EI TOIMI :(
-
+		
 		Connection con = null;
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
