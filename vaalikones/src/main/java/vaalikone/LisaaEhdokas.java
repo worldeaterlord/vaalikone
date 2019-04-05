@@ -52,7 +52,7 @@ public class LisaaEhdokas extends HttpServlet {
 	            out.println("<title>Servlet logic</title>");            
 	            out.println("</head>");
 	            out.println("<body>");
-	            out.println("<h1>Servlet logic at " + request.getContextPath() + "</h1>");
+	            out.println("<h1>Lis‰‰ ehdokas " + request.getContextPath() + "</h1>");
 	            out.println("<form action='LisaaHelper'method='POST'/>");
 	            out.println("Ehdokas ID");
 	            out.println("<br>");

@@ -12,7 +12,7 @@
 
 <div>
 Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><br>
-	<form action=MuokkaaEhdokas class="vastausformi">
+	<form action=MuokkaaEhdokasta class="vastausformi">
   	<input type="submit" id="MuokkaaEhdokasta" value="Muokkaa ehdokas" />
   	</form>
   	
