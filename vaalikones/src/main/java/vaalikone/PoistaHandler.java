@@ -53,7 +53,7 @@ public class PoistaHandler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String poista = request.getParameter("poista");
-
+		request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 		Connection con = null;
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
@@ -72,6 +72,7 @@ public class PoistaHandler extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	        
 
 		}
 	}

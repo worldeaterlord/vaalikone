@@ -15,18 +15,18 @@ Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><b
 	<form action=MuokkaaKysymys class="vastausformi">
   	<input type="submit" id="MuokkaaKysymys" value="Muokkaa kysymys" />
   	</form>
-  	
+
 	<form action="PoistaEhdokas" class="vastausformi">
 	<input type="submit" id="PoistaEhdokas" value="Poista ehdokas" />
 	</form>
-	
+
 	<form action="LisaaEhdokas" class="vastausformi">
 	<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
  	</form>
- 	
+
  	<form action="KorjaaTietokanta" class="vastausformi">
 	<input type="submit" id="KorjaaTietokanta" value="Korjaa tietokanta" />
  	</form>
- 	
+
 </body>
 </html>

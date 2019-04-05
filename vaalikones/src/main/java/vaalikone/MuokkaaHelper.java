@@ -13,28 +13,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LisaaHelper
+ * Servlet implementation class MuokkaaHelper
  */
-@WebServlet("/LisaaHelper")
-public class LisaaHelper extends HttpServlet {
+@WebServlet("/MuokkaaHelper")
+public class MuokkaaHelper extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MuokkaaHelper() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public LisaaHelper() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection conn;
 		Statement stm;
 		
@@ -57,7 +53,11 @@ public class LisaaHelper extends HttpServlet {
 			stm = conn.createStatement();
 			request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 			System.out.println("success");
-			String sql = "INSERT INTO ehdokkaat (EHDOKAS_ID, SUKUNIMI, ETUNIMI, PUOLUE, KOTIPAIKKAKUNTA, IKA, MIKSI_EDUSKUNTAAN, MITA_ASIOITA_HALUAT_EDISTAA, AMMATTI) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?)";
+			String sql = "INSERT INTO ehdokkaat (EHDOKAS_ID, SUKUNIMI, ETUNIMI, PUOLUE, KOTIPAIKKAKUNTA, IKA, MIKSI_EDUSKUNTAAN, MITA_ASIOITA_HALUAT_EDISTAA, AMMATTI)"
+			+ "VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?)"
+			+ "ON DUPLICATE KEY UPDATE "
+			+ " EHDOKAS_ID = VALUES(EHDOKAS_ID), SUKUNIMI = VALUES(SUKUNIMI), ETUNIMI = VALUES(ETUNIMI), PUOLUE = VALUES(PUOLUE), KOTIPAIKKAKUNTA = VALUES(KOTIPAIKKAKUNTA), IKA = VALUES(IKA),"
+			+ " MIKSI_EDUSKUNTAAN = VALUES(MIKSI_EDUSKUNTAAN), MITA_ASIOITA_HALUAT_EDISTAA = VALUES(MITA_ASIOITA_HALUAT_EDISTAA), AMMATTI = VALUES(AMMATTI)";
 			System.out.println("1");
 			PreparedStatement statement = conn.prepareStatement(sql);
 			System.out.println("2");
@@ -73,8 +73,8 @@ public class LisaaHelper extends HttpServlet {
 
 			System.out.println("3");
 			statement.executeUpdate();
-			System.out.println("Ehdokkaan tiedot lisätty onnistuneesti");
-			response.sendRedirect(request.getContextPath() + "/LisaaEhdokas");
+			System.out.println("Ehdokkaan tiedot päivitetty onnistuneesti");
+			response.sendRedirect(request.getContextPath() + "/MuokkaaEhdokasta");
 			conn.close();
 
 		} catch (Exception ex) {
@@ -85,11 +85,9 @@ public class LisaaHelper extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
