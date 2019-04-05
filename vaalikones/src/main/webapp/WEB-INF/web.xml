@@ -31,7 +31,7 @@
     <servlet-name>PoistaEhdokas</servlet-name>
     <url-pattern>/PoistaEhdokas</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>LisaaEhdokas</servlet-name>
     <servlet-class>vaalikone.LisaaEhdokas</servlet-class>
   </servlet>
@@ -39,7 +39,7 @@
     <servlet-name>LisaaEhdokas</servlet-name>
     <url-pattern>/LisaaEhdokas</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>KorjaaTietokanta</servlet-name>
     <servlet-class>vaalikone.KorjaaTietokanta</servlet-class>
   </servlet>

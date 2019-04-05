@@ -42,15 +42,7 @@ public class PoistaHandler extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Tässä on takaisin nappulan tietoja jotka rikkoo ton deleten...
-//		String a = request.getParameter("takaisin");
-//
-//        if (a != null && a.equals("confirm")) {
-//           // response.sendRedirect("/Initial");
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/AdminPage.jsp");
-//            dispatcher.forward(request, response);
-//            System.out.println("TESTI");
-//        }
+
 
 	}
 

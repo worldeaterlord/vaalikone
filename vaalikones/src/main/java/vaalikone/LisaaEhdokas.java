@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name = "LisaaEhdokas", urlPatterns = { "/LisaaEhdokas" })
+
 public class LisaaEhdokas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,65 +38,53 @@ public class LisaaEhdokas extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
-
-			Statement st = con.createStatement();
-			String query = "SELECT * FROM ehdokkaat";
-			PrintWriter id = response.getWriter();
-
-			ResultSet rs = st.executeQuery(query);
-
-			while (rs.next()) {
-				PrintWriter out = response.getWriter();
-				out.println(rs.getString("EHDOKAS_ID"));
-				out.print(rs.getString("ETUNIMI"));
-				out.println(" ");
-				out.print(rs.getString("SUKUNIMI"));
-				out.println(" ");
-				out.println("<BR>");
-				out.println(" ");
-
-			}
-			
-			id.println("---------------------------------------");
-			id.println("<BR>");
-
-			id.println("<form action='./LisaaEhdokasHandler'method='POST'/>");
-			id.println("Ehdokas id");
-			id.println("<input type = 'text' name='EHDOKAS_ID' </input>");
-			id.println("<BR>");
-			id.println("Sukunimi");
-			id.println("<input type = 'text' name='SUKUNIMI' </input>");
-			id.println("<BR>");
-			id.println("Etunimi");
-			id.println("<input type = 'text' name='ETUNIMI' </input>");
-			id.println("<BR>");
-			id.println("Puolue");
-			id.println("<input type = 'text' name='PUOLUE' </input>");
-			id.println("<BR>");
-			id.println("Kotipaikkakunta");
-			id.println("<input type = 'text' name='KOTIPAIKKAKUNTA' </input>");
-			id.println("<BR>");
-			id.println("Ik‰");
-			id.println("<input type = 'text' name='IKA' </input>");
-			id.println("<BR>");
-			id.println("Miksi eduskuntaan");
-			id.println("<input type = 'text' name='MIKSI_EDUSKUNTAAN' </input>");
-			id.println("<BR>");
-			id.println("Mit‰ asioita haluat edist‰‰");
-			id.println("<input type = 'text' name='MITƒ_ASIOITA_HALUAT_EDISTAA' </input>");
-			id.println("<BR>");
-			id.println("Ammatti");
-			id.println("<input type = 'text' name='AMMATTI' </input>");
-			id.println("<BR>");
-			id.println("<input type = 'submit' value = 'LisaaSubmit'</input> ");
-
-			st.close();
-
-		} catch (Exception e) {
-		}
+		
+		 response.setContentType("text/html;charset=UTF-8");
+	        String name = request.getParameter("name");
+	        LisaaHelper con = new LisaaHelper();
+	        
+	        
+	        try (PrintWriter out = response.getWriter()) {
+	            /* TODO output your page here. You may use following sample code. */
+	            out.println("<!DOCTYPE html>");
+	            out.println("<html>");
+	            out.println("<head>");
+	            out.println("<title>Servlet logic</title>");            
+	            out.println("</head>");
+	            out.println("<body>");
+	            out.println("<h1>Servlet logic at " + request.getContextPath() + "</h1>");
+	            out.println("<form action='LisaaHelper'method='POST'/>");
+	            out.println("Ehdokas ID");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='id' </input><br>");
+	            out.println("Sukunimi");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='Sukunimi' </input><br>");
+	            out.println("Etunimi");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='Etunimi' </input><br>");
+	            out.println("Puolue");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='Puolue' </input><br>");
+	            out.println("Kotipaikkakunta");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='Kotipaikkakunta' </input><br>");
+	            out.println("Ik‰");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='ik‰' </input><br>");
+	            out.println("Miksi Eduskuntaan");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='MiksiEduskuntaan' </input><br>");
+	            out.println("Mit‰ asioita haluat edist‰‰");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='Mit‰AsioitaHauluatEdist‰‰' </input><br>");
+	            out.println("Ammatti");
+	            out.println("<br>");
+				out.println("<input type = 'text' name='Ammatti' </input><br>");
+				out.println("<input type = 'submit' value='lisaa' </input><br>");
+	            out.println("</body>");
+	            out.println("</html>");
+	        }
 
 	}
 
