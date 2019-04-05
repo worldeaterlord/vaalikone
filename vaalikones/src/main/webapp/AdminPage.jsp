@@ -16,6 +16,10 @@ Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><b
   	<input type="submit" id="MuokkaaKysymys" value="Muokkaa kysymys" />
   	</form>
 
+	<form action="MuokkaaEhdokasta" class="vastausformi">
+	<input type="submit" id="MuokkaaEhdokasta" value="Muokkaa ehdokas" />
+	</form>
+
 	<form action="PoistaEhdokas" class="vastausformi">
 	<input type="submit" id="PoistaEhdokas" value="Poista ehdokas" />
 	</form>
