@@ -3073,3 +3073,6 @@ Caused by: org.eclipse.core.commands.NotHandledException: Handler org.eclipse.ui
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-05 13:34:27.255
 !MESSAGE No repository found at http://download.eclipse.org/egit/update.
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-05 14:21:20.873
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'

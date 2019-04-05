@@ -56,6 +56,10 @@ public class MuokkaaKysymys extends HttpServlet {
 				out.println("<BR>");
 			}
 			
+			prw.println("<form action='MuokkaaKysymysHandler'method='POST'/>");
+			prw.println("<input type = 'text' name='poista' </input>");
+			prw.println("<input type = 'submit' value = 'delete'</input>");
+
 			
 
 		} catch (Exception e) {
