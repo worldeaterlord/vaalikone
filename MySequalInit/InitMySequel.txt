@@ -1,6 +1,0 @@
-
-use vaalikone;
-
-Create table kayttajat(id int NOT NULL AUTO_INCREMENT, tunnus VARCHAR(45) NOT NULL, salasana VARCHAR(45) NOT NULL, PRIMARY KEY(id));
-
-INSERT INTO kayttajat (tunnus,salasana)VALUES("dev","qwerty");

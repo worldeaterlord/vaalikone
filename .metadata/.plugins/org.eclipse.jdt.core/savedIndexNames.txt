@@ -12,8 +12,8 @@ INDEX VERSION 1.131+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikon
 1878111493.index
 2936424661.index
 465803945.index
-3705452257.index
 2597684011.index
+3705452257.index
 1022955866.index
 58444662.index
 2009525291.index
@@ -25,8 +25,8 @@ INDEX VERSION 1.131+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikon
 3797616099.index
 1877264734.index
 2953298812.index
-2934972770.index
 3154231247.index
+2934972770.index
 1897928139.index
 3530066967.index
 2115827264.index
@@ -39,7 +39,6 @@ INDEX VERSION 1.131+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikon
 972666350.index
 1519198412.index
 152106252.index
-1043764823.index
 1235773644.index
 2420708698.index
 2537237131.index
@@ -49,13 +48,13 @@ INDEX VERSION 1.131+C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikon
 1391346088.index
 899518542.index
 676123451.index
+3366501974.index
 904289187.index
 2508711629.index
 3698278747.index
 2625902985.index
 1359708031.index
 4261354019.index
-3159763986.index
 4018734466.index
 1360975548.index
 3790422764.index

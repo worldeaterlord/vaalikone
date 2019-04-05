@@ -14,52 +14,54 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LoginHandler
  */
-@WebServlet(name = "Login", urlPatterns = {"/LoginHandler"})
-
+@WebServlet(name = "Login", urlPatterns = { "/LoginHandler" })
 
 public class LoginHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	
+
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-		
+
 	}
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginHandler() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginHandler() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		response.setContentType("text/html");  
-	    PrintWriter out = response.getWriter();  
-	          
-	    String n=request.getParameter("uname");  
-	    String p=request.getParameter("password");
-	    
-	    if(LoginHandlerHelper.check(n, p)) {
-	    	response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
-	    }else {
-	    	out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");  
-	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
-	        rd.include(request,response);  
-	    }
-	     
-	          
-	    out.close();  
-	    }  
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+
+		String n = request.getParameter("uname");
+		String p = request.getParameter("password");
+
+		if (LoginHandlerHelper.check(n, p)) {
+			response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
+		} else {
+			out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			rd.include(request, response);
+		}
+
+		out.close();
 	}
+}

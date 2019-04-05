@@ -31,4 +31,28 @@
     <servlet-name>PoistaEhdokas</servlet-name>
     <url-pattern>/PoistaEhdokas</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>LisaaEhdokas</servlet-name>
+    <servlet-class>vaalikone.LisaaEhdokas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LisaaEhdokas</servlet-name>
+    <url-pattern>/LisaaEhdokas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>KorjaaTietokanta</servlet-name>
+    <servlet-class>vaalikone.KorjaaTietokanta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KorjaaTietokanta</servlet-name>
+    <url-pattern>/KorjaaTietokanta</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MuokkaaKysymys</servlet-name>
+    <url-pattern>/MuokkaaKysymys</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MuokkaaKysymys</servlet-name>
+    <servlet-class>vaalikone.MuokkaaKysymys</servlet-class>
+  </servlet>
 </web-app>
