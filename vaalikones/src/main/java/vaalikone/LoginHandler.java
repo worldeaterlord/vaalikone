@@ -48,7 +48,7 @@ public class LoginHandler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
+		response.setContentType("html");
 		PrintWriter out = response.getWriter();
 
 		String n = request.getParameter("uname");

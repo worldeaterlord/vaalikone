@@ -61,8 +61,6 @@ public class LisaaEhdokas implements Serializable{
 	@Column(name = "AMMATTI")
 	private String ammatti;
 	
-	private String LisaaHelper;
-	
 	public Integer getEhdokasId() {
 		return ehdokasId;
 	}
@@ -116,12 +114,6 @@ public class LisaaEhdokas implements Serializable{
 	}
 	public void setAmmatti(String ammatti) {
 		this.ammatti = ammatti;
-	}
-	public String getLisaaHelper() {
-		return LisaaHelper;
-	}
-	public void setLisaaHelper(String lisaaHelper) {
-		LisaaHelper = lisaaHelper;
 	}
 
 	
