@@ -10,6 +10,12 @@
 <body>
 <h2>Lisää Ehdokas</h2>
 
+<div>
+
+<%String name = request.getParameter("name"); %>
+<% %>
+
+
 <form action="LisaaEhdokasHandler" method="post">
 
 Ehdokas ID<input type="text" name="EHDOKAS_ID"/><br>
@@ -24,5 +30,6 @@ Ammatti<input type="text" name="AMMATTI"/><br>
 <input type="submit"/>
 
 </form>
+</div>
 </body>
 </html>
