@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginHandler
@@ -50,12 +51,13 @@ public class LoginHandler extends HttpServlet {
 
 		response.setContentType("html");
 		PrintWriter out = response.getWriter();
-
+		HttpSession session = request.getSession(true);
 		String n = request.getParameter("uname");
 		String p = request.getParameter("password");
 
 		if (LoginHandlerHelper.check(n, p)) {
 			response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
+			session.setAttribute("uname", n);
 		} else {
 			out.println("K‰ytt‰j‰ tai salasana v‰‰rin!");
 			RequestDispatcher rd = request.getRequestDispatcher("index.html");

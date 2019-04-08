@@ -14,7 +14,8 @@
 <title>>Poista Ehdokas</title>
 </head>
 <body>
-
+<%String uname =(String)session.getAttribute("uname");
+if(null!=uname){%>
 <div>
 <form>
 <table>
@@ -62,3 +63,6 @@ Ehdokas ID<input type="text" name="poista"/><br>
 
 </body>
 </html>
+<% }else{
+		response.sendRedirect("http://localhost:8080/index.html");
+	} %>

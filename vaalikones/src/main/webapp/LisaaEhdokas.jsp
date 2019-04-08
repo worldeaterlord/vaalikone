@@ -8,7 +8,8 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>Lisää Ehdokas</h2>
+<%String uname =(String)session.getAttribute("uname");
+if(null!=uname){%><h2>Lisää Ehdokas</h2>
 
 <div>
 
@@ -32,3 +33,6 @@ Ammatti<input type="text" name="Ammatti"/><br>
 </div>
 </body>
 </html>
+<% }else{
+		response.sendRedirect("http://localhost:8080/index.html");
+	} %>
