@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="vaalikone.PoistaHandler"%>
 <%@page import="persist.Vastaukset"%>
 <%@page import="java.util.List"%>
@@ -10,12 +9,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>>Poista Ehdokas</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
+<h2>Poista Ehdokas</h2>
 <div>
 <form>
 <table>
@@ -33,7 +34,7 @@ try {
 	while (rs.next()) {
 		%>
 		<tr>
-		<td><%iiii.print(rs.getInt("EHDOKAS_ID" + "<br>"));%></td>
+		<td><%iiii.print(rs.getInt("EHDOKAS_ID"));%></td>
 		<td><%iiii.print(rs.getString("SUKUNIMI"));%></td>
 		<td><%iiii.print(rs.getString("ETUNIMI")); %></td>
 		</tr>
