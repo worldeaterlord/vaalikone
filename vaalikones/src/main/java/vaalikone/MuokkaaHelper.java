@@ -74,7 +74,7 @@ public class MuokkaaHelper extends HttpServlet {
 			System.out.println("3");
 			statement.executeUpdate();
 			System.out.println("Ehdokkaan tiedot päivitetty onnistuneesti");
-			response.sendRedirect(request.getContextPath() + "/MuokkaaEhdokasta");
+			response.sendRedirect(request.getContextPath() + "/MuokkaaEhdokasta.jsp");
 			conn.close();
 
 		} catch (Exception ex) {

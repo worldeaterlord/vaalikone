@@ -20,7 +20,7 @@ if(null!=uname){%>
 	  	<input type="submit" id="MuokkaaKysymys" value="Muokkaa kysymys" />
 	  	</form>
 
-		<form action="MuokkaaEhdokasta" class="vastausformi">
+		<form action="MuokkaaEhdokasta.jsp" class="vastausformi">
 		<input type="submit" id="MuokkaaEhdokasta" value="Muokkaa ehdokas" />
 		</form>
 
