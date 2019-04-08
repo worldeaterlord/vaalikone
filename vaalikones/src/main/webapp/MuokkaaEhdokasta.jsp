@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="vaalikone.MuokkaaHelper"%>
 <%@page import="persist.Vastaukset"%>
 <%@page import="java.util.List"%>
@@ -10,12 +9,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>>Muokkaa Ehdokasta</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
+<h2>Muokkaa Ehdokasta</h2>
 <div>
 <form>
 <table>
@@ -57,11 +58,11 @@ Ehdokas ID<input type="text" name="id"/><br>
 Sukunimi<input type="text" name="Sukunimi"/><br>
 Etunimi<input type="text" name="Etunimi"/><br>
 Puolue<input type="text" name="Puolue"/><br>
-Sukunimi<input type="text" name="Kotipaikkakunta"/><br>
-Sukunimi<input type="text" name="ik�"/><br>
-Sukunimi<input type="text" name="MiksiEduskuntaan"/><br>
-Sukunimi<input type="text" name="Mit�AsioitaHauluatEdist��"/><br>
-Sukunimi<input type="text" name="Ammatti"/><br>
+KotiPaikkaKunta<input type="text" name="Kotipaikkakunta"/><br>
+Ikä<input type="text" name="ikä"/><br>
+Miksi Eduskuntaan<input type="text" name="MiksiEduskuntaan"/><br>
+Mitä asioita haluat edistää<input type="text" name="MitäAsioitaHauluatEdistää"/><br>
+Ammatti<input type="text" name="Ammatti"/><br>
 <input type="submit" value='lisaa'/>
 
 </form>
