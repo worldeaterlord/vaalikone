@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LisaaHelper
  */
-@WebServlet("/LisaaHelper")
+@WebServlet(name = "/LisaaHelper",  urlPatterns = { "/LisaaHelper" })
 public class LisaaHelper extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -74,7 +74,7 @@ public class LisaaHelper extends HttpServlet {
 			System.out.println("3");
 			statement.executeUpdate();
 			System.out.println("Ehdokkaan tiedot lisätty onnistuneesti");
-			response.sendRedirect(request.getContextPath() + "/LisaaEhdokas");
+			response.sendRedirect(request.getContextPath() + "/LisaaEhdokas.jsp");
 			conn.close();
 
 		} catch (Exception ex) {

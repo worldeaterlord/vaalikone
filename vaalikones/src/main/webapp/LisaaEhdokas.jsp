@@ -12,22 +12,21 @@
 
 <div>
 
-<%String name = request.getParameter("name"); %>
-<% %>
 
 
-<form action="LisaaEhdokasHandler" method="post">
 
-Ehdokas ID<input type="text" name="EHDOKAS_ID"/><br>
-Sukunimi<input type="text" name="SUKUNIMI"/><br>
-Etunimi<input type="text" name="ETUNIMI"/><br>
-Puolue<input type="text" name="PUOLUE"/><br>
-Kotipaikkakunta<input type="text" name="KOTIPAIKKAKUNTA"/><br>
-Ikä<input type="text" name="IKA"/><br>
-Miksi eduskuntaan<input type="text" name="MIKSI_EDUSKUNTAAN"/><br>
-Mitä asioita haluat edistää<input type="text" name="MITÄ_ASIOITA_HALUAT_EDISTAA"/><br>
-Ammatti<input type="text" name="AMMATTI"/><br>
-<input type="submit"/>
+<form action="LisaaHelper" method="POST">
+
+Ehdokas ID<input type="text" name="id"/><br>
+Sukunimi<input type="text" name="Sukunimi"/><br>
+Etunimi<input type="text" name="Etunimi"/><br>
+Puolue<input type="text" name="Puolue"/><br>
+Kotipaikkakunta<input type="text" name="Kotipaikkakunta"/><br>
+Ikä<input type="text" name="ikä"/><br>
+Miksi eduskuntaan<input type="text" name="Miksieduskuntaan"/><br>
+Mitä asioita haluat edistää<input type="text" name="MitäAsioitaHauluatEdistää"/><br>
+Ammatti<input type="text" name="Ammatti"/><br>
+<input type="submit" value='lisaa'/>
 
 </form>
 </div>

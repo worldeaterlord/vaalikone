@@ -24,7 +24,7 @@ Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><b
 	<input type="submit" id="PoistaEhdokas" value="Poista ehdokas" />
 	</form>
 
-	<form action="LisaaEhdokas" class="vastausformi">
+	<form action="LisaaEhdokas.jsp" class="vastausformi">
 	<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
  	</form>
 
