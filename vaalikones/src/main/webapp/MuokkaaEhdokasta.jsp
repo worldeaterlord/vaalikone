@@ -18,8 +18,6 @@
 if(null!=uname){%>
 <h2>Muokkaa Ehdokasta</h2>
 <div>
-<form>
-<table>
 <%
 try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -34,14 +32,17 @@ try {
 	while (rs.next()) {
 		%>
 		<tr>
-		<td><%iiii.print(rs.getInt("EHDOKAS_ID"));%></td>
-		<td><%iiii.print(rs.getString("SUKUNIMI"));%></td>
-		<td><%iiii.print(rs.getString("ETUNIMI")); %></td>
+		<th><%iiii.print(rs.getInt("EHDOKAS_ID")+ "\n");%></th>
+		</tr>
+		<tr>
+		<th><%iiii.print(rs.getString("SUKUNIMI")+ "\n");%></th>
+		</tr>
+		<tr>
+		<th><%iiii.print(rs.getString("ETUNIMI")+ "\n" + "<br>"); %></th>
 		</tr>
 			<%
 	}
 	%>
-		</table>
 		<%
 		stmt.close();
 }
@@ -50,7 +51,6 @@ try {
 }
 
 %>
-</form>
 
 <form action="MuokkaaHelper" method="POST">
 
