@@ -6,6 +6,7 @@
 	    <class>persist.Vastaukset</class>
 	    <class>persist.VastauksetPK</class>
 	    <class>persist.LisaaEhdokas</class>
+	    <class>persist.PoistaEhdokas</class>
 
 	    <properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

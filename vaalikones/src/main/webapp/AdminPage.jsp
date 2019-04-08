@@ -20,7 +20,7 @@ Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><b
 	<input type="submit" id="MuokkaaEhdokasta" value="Muokkaa ehdokas" />
 	</form>
 
-	<form action="PoistaEhdokas" class="vastausformi">
+	<form action="PoistaEhdokas.jsp" class="vastausformi">
 	<input type="submit" id="PoistaEhdokas" value="Poista ehdokas" />
 	</form>
 

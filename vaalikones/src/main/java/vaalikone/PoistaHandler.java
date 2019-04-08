@@ -60,7 +60,7 @@ public class PoistaHandler extends HttpServlet {
 			Statement stmt = con.createStatement();
 			String sql = "delete from ehdokkaat where EHDOKAS_ID='?'";
 			stmt.executeUpdate(("DELETE FROM ehdokkaat WHERE EHDOKAS_ID = \"" + poista + "\""));
-			response.sendRedirect(request.getContextPath() + "/PoistaEhdokas");
+			response.sendRedirect(request.getContextPath() + "/PoistaEhdokas.jsp");
 			System.out.println("Ehdokkaan tiedot poistettu onnistuneesti");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -24,14 +24,6 @@
     <url-pattern>/AdminPage</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>PoistaEhdokas</servlet-name>
-    <servlet-class>vaalikone.PoistaEhdokas</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PoistaEhdokas</servlet-name>
-    <url-pattern>/PoistaEhdokas</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>KorjaaTietokanta</servlet-name>
     <servlet-class>vaalikone.KorjaaTietokanta</servlet-class>
   </servlet>
