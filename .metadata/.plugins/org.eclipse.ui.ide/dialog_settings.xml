@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Vaalikone"/>
 		<item value="C:\Users\ioko\Documents\GitHub\vaalikone-repository\vaalikone"/>
 	</list>
 	<section name="ExternalProjectImportWizard">
@@ -13,5 +14,13 @@
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value="C:\Users\ioko\Downloads\vaalikones.zip"/>
 		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="617" key="DIALOG_X_ORIGIN"/>
+		<item value="274" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

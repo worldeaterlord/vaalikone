@@ -41,9 +41,7 @@ public class PoistaHandler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-
-
+		doPost(request, response);
 	}
 
 	/**
@@ -53,13 +51,13 @@ public class PoistaHandler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String poista = request.getParameter("poista");
-		request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
+		//request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 		Connection con = null;
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			Statement stmt = con.createStatement();
-			String sql = "delete from ehdokkaat where EHDOKAS_ID='?'";
-			stmt.executeUpdate(("DELETE FROM ehdokkaat WHERE EHDOKAS_ID = \"" + poista + "\""));
+			//String sql = "delete from ehdokkaat where EHDOKAS_ID='?'";
+			stmt.executeUpdate("DELETE FROM ehdokkaat WHERE EHDOKAS_ID = " + poista);
 			response.sendRedirect(request.getContextPath() + "/PoistaEhdokas.jsp");
 			System.out.println("Ehdokkaan tiedot poistettu onnistuneesti");
 		} catch (Exception e) {

@@ -24,6 +24,10 @@ if(null!=uname){%>
 		<form action=MuokkaaKysymys.jsp class="vastausformi">
 	  	<input type="submit" id="MuokkaaKysymys" value="Muokkaa kysymys" />
 	  	</form>
+	  	
+	  	<form action=PoistaKysymys.jsp class="vastausformi">
+		<input type="submit" id="PoistaKysymys" value="Poista kysymys" />
+		</form>
 
 		<form action="MuokkaaEhdokasta.jsp" class="vastausformi">
 		<input type="submit" id="MuokkaaEhdokasta" value="Muokkaa ehdokas" />
