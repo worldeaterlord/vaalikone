@@ -11,11 +11,12 @@
 <body>
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
-	
+	<div class="wrapper">
 	<h2>Tervetuloa Admin sivulle</h2>
 
 	<div>
-	Alla olevasta painikkeesta pääset muokkaamaan, lisäämään ja poistamaan ehdokkaita</div><br>
+	Alla olevasta painikkeesta pääset muokkaamaan, lisäämään ja poistamaan ehdokkaita
+	</div><br>
 		<form action=LisaaKysymys.jsp class="vastausformi">
 		<input type="submit" id="LisaaKysymys" value="Lisaa kysymys" />
 		</form>
@@ -43,11 +44,14 @@ if(null!=uname){%>
 	 	<form action="KorjaaTietokanta" class="vastausformi">
 		<input type="submit" id="KorjaaTietokanta" value="Korjaa tietokanta" />
 	 	</form>
+	 	<footer class="foot">
+	 		<p>Robot3000</p>
+	 	</footer>
+	</div>
+</body>
+</html>
+<% }else{
+	response.sendRedirect("http://localhost:8080/index.html");
+} %>
 
-	</body>
-	</html>
-	<% }else{
-		response.sendRedirect("http://localhost:8080/index.html");
-	} %>
-	
 

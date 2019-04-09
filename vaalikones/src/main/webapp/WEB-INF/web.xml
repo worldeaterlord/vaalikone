@@ -23,12 +23,4 @@
     <servlet-name>AdminPage</servlet-name>
     <url-pattern>/AdminPage</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>KorjaaTietokanta</servlet-name>
-    <servlet-class>vaalikone.KorjaaTietokanta</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>KorjaaTietokanta</servlet-name>
-    <url-pattern>/KorjaaTietokanta</url-pattern>
-  </servlet-mapping>
 </web-app>
