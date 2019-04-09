@@ -36,14 +36,17 @@ public class PoistaKysymysHandler extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String kysymys = request.getParameter("poista");
-		// request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 		Connection con = null;
 		try {
+			System.out.println("1");
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
+			System.out.println("2");
 			Statement stmt = con.createStatement();
-			stmt.executeUpdate("DELETE FROM ehdokkaat WHERE KYSYMYS_ID = " + kysymys);
-			response.sendRedirect(request.getContextPath() + "/PoistaKysymys.jsp");
+			System.out.println("3");
+			stmt.executeUpdate("DELETE FROM kysymykset WHERE KYSYMYS_ID = " + kysymys);
+			System.out.println("4");
 			System.out.println("Kysymys poistettu");
+			response.sendRedirect(request.getContextPath() + "/PoistaKysymys.jsp");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
