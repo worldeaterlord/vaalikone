@@ -18,7 +18,6 @@
 if(null!=uname){%>
 <h2>Poista Ehdokas</h2>
 <div>
-<form>
 <%
 try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -52,7 +51,6 @@ try {
 }
 
 %>
-</form>
 
 <form action="PoistaHandler" method="POST">
 
