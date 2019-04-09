@@ -19,7 +19,6 @@ if(null!=uname){%>
 <h2>Poista Ehdokas</h2>
 <div>
 <form>
-<table>
 <%
 try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -34,19 +33,21 @@ try {
 	while (rs.next()) {
 		%>
 		<tr>
-			<td><%iiii.println(rs.getInt("EHDOKAS_ID"));%></td>
-			<td><%iiii.println(rs.getString("SUKUNIMI"));%></td>
-			<td><%iiii.println(rs.getString("ETUNIMI")); %></td>
+		<th><%iiii.print(rs.getInt("EHDOKAS_ID")+ "\n");%></th>
+		</tr>
+		<tr>
+		<th><%iiii.print(rs.getString("SUKUNIMI")+ "\n");%></th>
+		</tr>
+		<tr>
+		<th><%iiii.print(rs.getString("ETUNIMI")+ "\n" + "<br>"); %></th>
 		</tr>
 			<%
 	}
 	%>
-		</table>
-		</form>
 		<%
 		stmt.close();
 }
-	
+
  catch (Exception e) {
 }
 

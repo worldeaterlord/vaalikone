@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="vaalikone.MuokkaaHelper"%>
+<%@page import="vaalikone.MuokkaaKysymysHandler"%>
 <%@page import="persist.Vastaukset"%>
 <%@page import="java.util.List"%>
 <%@page import="persist.Ehdokkaat"%>
@@ -10,13 +10,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>>Muokkaa Ehdokasta</title>
+<title>>Lisaa kysymys</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
-<h2>Muokkaa Ehdokasta</h2>
+<h2>Lisää uusi kysymys</h2>
 <div>
 <%
 try {
@@ -24,7 +24,7 @@ try {
 	String url="jdbc:mysql://localhost/vaalikone";
 	String username="root";
 	String password="";
-	String query = "SELECT * FROM ehdokkaat";
+	String query = "SELECT * FROM kysymykset";
 	Connection con = DriverManager.getConnection(url,username,password);
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
@@ -32,13 +32,10 @@ try {
 	while (rs.next()) {
 		%>
 		<tr>
-		<th><%iiii.print(rs.getInt("EHDOKAS_ID")+ "\n");%></th>
+		<th><%iiii.print(rs.getInt("KYSYMYS_ID")+ "\n");%></th>
 		</tr>
 		<tr>
-		<th><%iiii.print(rs.getString("SUKUNIMI")+ "\n");%></th>
-		</tr>
-		<tr>
-		<th><%iiii.print(rs.getString("ETUNIMI")+ "\n" + "<br>"); %></th>
+		<th><%iiii.print(rs.getString("KYSYMYS")+ "\n" + "<br>");%></th>
 		</tr>
 			<%
 	}
@@ -52,18 +49,12 @@ try {
 
 %>
 
-<form action="MuokkaaHelper" method="POST">
+<form action="LisaaKysymysHandler" method="POST">
 
-Ehdokas ID<input type="text" name="id"/><br>
-Sukunimi<input type="text" name="Sukunimi"/><br>
-Etunimi<input type="text" name="Etunimi"/><br>
-Puolue<input type="text" name="Puolue"/><br>
-KotiPaikkaKunta<input type="text" name="Kotipaikkakunta"/><br>
-Ikä<input type="text" name="ikä"/><br>
-Miksi Eduskuntaan<input type="text" name="MiksiEduskuntaan"/><br>
-Mitä asioita haluat edistää<input type="text" name="MitäAsioitaHauluatEdistää"/><br>
-Ammatti<input type="text" name="Ammatti"/><br>
-<input type="submit" value='lisaa'/>
+Kysymys ID<input type="text" name="kysymys_id"/><br>
+Kysymys<input type="text" name="kysymys"/><br>
+
+<input type="submit" value='lisaaKysymys'/>
 
 </form>
 </div>

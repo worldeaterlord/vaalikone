@@ -15,8 +15,12 @@ if(null!=uname){%>
 	<h2>Tervetuloa Admin sivulle</h2>
 
 	<div>
-	Alla olevasta painikkeesta pääset muokkaamaan ja poistamaan ehdokkaita</div><br>
-		<form action=MuokkaaKysymys class="vastausformi">
+	Alla olevasta painikkeesta pääset muokkaamaan, lisäämään ja poistamaan ehdokkaita</div><br>
+		<form action=LisaaKysymys.jsp class="vastausformi">
+		<input type="submit" id="LisaaKysymys" value="Lisaa kysymys" />
+		</form>
+	
+		<form action=MuokkaaKysymys.jsp class="vastausformi">
 	  	<input type="submit" id="MuokkaaKysymys" value="Muokkaa kysymys" />
 	  	</form>
 
