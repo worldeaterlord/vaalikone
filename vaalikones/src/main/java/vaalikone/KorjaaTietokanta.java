@@ -1,6 +1,8 @@
 package vaalikone;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 
 import javax.servlet.ServletException;
@@ -31,15 +33,16 @@ public class KorjaaTietokanta extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("").append(request.getContextPath());
-		Process process;
+		
 		try {
-			//Runtime rt = Runtime.getRuntime();
-
+			Process process;
+			String line;
 			String url = Resources.getResource("vaalikone").getPath();
-			process = Runtime.getRuntime().exec("mysql -u root"+url+".txt");
 			response.getWriter().append(url + ".txt");
-			String executeCommand = "";
+
+			process = Runtime.getRuntime().exec("source " +url);
+			response.getWriter().append(url + ".txt");
+	
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
