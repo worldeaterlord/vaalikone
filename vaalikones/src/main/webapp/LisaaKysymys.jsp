@@ -14,12 +14,15 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
 <h2>Lisää uusi kysymys</h2>
 <div>
 <%
 try {
+
 	Class.forName("com.mysql.jdbc.Driver");
 	String url="jdbc:mysql://localhost/vaalikone";
 	String username="root";
@@ -29,10 +32,11 @@ try {
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
 	PrintWriter iiii = response.getWriter();
+	iiii.print("<div class='wrapper'>");
 	while (rs.next()) {
 		%>
 		<tr>
-		<th><%iiii.print(rs.getInt("KYSYMYS_ID")+ "\n");%></th>
+		<%iiii.print(rs.getInt("KYSYMYS_ID")+ "\n");%>
 		</tr>
 		<tr>
 		<th><%iiii.print(rs.getString("KYSYMYS")+ "\n" + "<br>");%></th>
@@ -60,7 +64,7 @@ Kysymys<input type="text" name="kysymys"/><br>
 </div>
 
 
-
+</div>
 </body>
 </html>
 <% }else{
