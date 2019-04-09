@@ -6,6 +6,8 @@
 <%@page import="java.sql.*" %>
 <%@page import="java.io.PrintWriter" %>
 
+<%String uname =(String)session.getAttribute("uname");
+if(null!=uname){%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +16,6 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%String uname =(String)session.getAttribute("uname");
-if(null!=uname){%>
 <h2>Poista Ehdokas</h2>
 <div>
 <form>
@@ -34,14 +34,15 @@ try {
 	while (rs.next()) {
 		%>
 		<tr>
-		<td><%iiii.print(rs.getInt("EHDOKAS_ID"));%></td>
-		<td><%iiii.print(rs.getString("SUKUNIMI"));%></td>
-		<td><%iiii.print(rs.getString("ETUNIMI")); %></td>
+			<td><%iiii.println(rs.getInt("EHDOKAS_ID"));%></td>
+			<td><%iiii.println(rs.getString("SUKUNIMI"));%></td>
+			<td><%iiii.println(rs.getString("ETUNIMI")); %></td>
 		</tr>
 			<%
 	}
 	%>
 		</table>
+		</form>
 		<%
 		stmt.close();
 }
@@ -50,7 +51,6 @@ try {
 }
 
 %>
-</form>
 
 <form action="PoistaHandler" method="POST">
 
