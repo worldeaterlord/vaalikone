@@ -12,11 +12,11 @@ if(null!=uname){%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>>Poista Ehdokas</title>
+<title>>Poista Kysymys</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>Poista Ehdokas</h2>
+<h2>Poista Kysymys</h2>
 <div>
 <%
 try {
@@ -24,7 +24,7 @@ try {
 	String url="jdbc:mysql://localhost/vaalikone";
 	String username="root";
 	String password="";
-	String query = "SELECT * FROM ehdokkaat";
+	String query = "SELECT * FROM kysymykset";
 	Connection con = DriverManager.getConnection(url,username,password);
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
@@ -32,13 +32,10 @@ try {
 	while (rs.next()) {
 		%>
 		<tr>
-		<th><%iiii.print(rs.getInt("EHDOKAS_ID")+ "\n");%></th>
+		<th><%iiii.print(rs.getInt("KYSYMYS_ID")+ "\n");%></th>
 		</tr>
 		<tr>
-		<th><%iiii.print(rs.getString("SUKUNIMI")+ "\n");%></th>
-		</tr>
-		<tr>
-		<th><%iiii.print(rs.getString("ETUNIMI")+ "\n" + "<br>"); %></th>
+		<th><%iiii.print(rs.getString("KYSYMYS")+ "\n");%></th>
 		</tr>
 			<%
 	}
@@ -48,12 +45,13 @@ try {
 }
 
  catch (Exception e) {
+	 e.getMessage();
 }
 
 %>
-<form action="PoistaHandler" method="POST">
+<form action="PoistaKysymysHandler" method="POST">
 
-Ehdokas ID<input type="text" name="poista"/><br>
+Kysymys ID<input type="text" name="poista"/><br>
 <input type="submit" value='delete'/>
 
 </form>
