@@ -17,7 +17,7 @@ if(null!=uname){%>
 </head>
 <body>
 <h2>Poista Kysymys</h2>
-<div>
+<div class="sqltulostus">
 <%
 try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,7 @@ try {
 		<th><%iiii.print(rs.getInt("KYSYMYS_ID")+ "\n");%></th>
 		</tr>
 		<tr>
-		<th><%iiii.print(rs.getString("KYSYMYS")+ "\n");%></th>
+		<th><%iiii.print(rs.getString("KYSYMYS")+ "\n" + "<br>");%></th>
 		</tr>
 			<%
 	}
