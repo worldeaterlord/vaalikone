@@ -17,7 +17,7 @@
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%><h2>Lisää Ehdokas</h2>
 
-<div>
+
 
 <form>
 <%
@@ -31,6 +31,7 @@ try {
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
 	PrintWriter iiii = response.getWriter();
+	iiii.print("<div id='wrapper'>");
 	while (rs.next()) {
 		%>
 		<tr>
@@ -70,6 +71,7 @@ Ammatti<input type="text" name="Ammatti"/><br>
 <input type="submit" value='lisaa'/>
 
 </form>
+
 </div>
 </body>
 </html>

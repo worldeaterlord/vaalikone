@@ -11,7 +11,7 @@
 <body>
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
-	<div class="wrapper">
+	<div id="wrapper">
 	<h2>Tervetuloa Admin sivulle</h2>
 
 	<div>
@@ -41,9 +41,6 @@ if(null!=uname){%>
 		<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
 	 	</form>
 
-	 	<form action="KorjaaTietokanta" class="vastausformi">
-		<input type="submit" id="KorjaaTietokanta" value="Korjaa tietokanta" />
-	 	</form>
 	 	<footer class="foot">
 	 		<p>Robot3000</p>
 	 	</footer>

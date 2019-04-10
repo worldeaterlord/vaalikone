@@ -17,7 +17,7 @@
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
 <h2>Muokkaa Kysymystä</h2>
-<div>
+
 <%
 try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -29,6 +29,7 @@ try {
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
 	PrintWriter iiii = response.getWriter();
+	iiii.print("<div id='wrapper'>");
 	while (rs.next()) {
 		%>
 		<tr>

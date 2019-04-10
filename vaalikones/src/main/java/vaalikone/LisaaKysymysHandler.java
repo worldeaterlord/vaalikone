@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LisaaKysymysHandler")
 public class LisaaKysymysHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,13 +31,13 @@ public class LisaaKysymysHandler extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		Connection conn;
 		Statement stm;
-		
+
 		String kysymys_id = request.getParameter("kysymys_id");
-		String Kysymys = request.getParameter("kysymys");
-		
+		String kysymys = request.getParameter("kysymys");
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
@@ -49,11 +49,11 @@ public class LisaaKysymysHandler extends HttpServlet {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			System.out.println("2");
 			statement.setString(1, kysymys_id);
-			statement.setString(2, Kysymys);
+			statement.setString(2, kysymys);
 
 			System.out.println("3");
 			statement.executeUpdate();
-			System.out.println("Uusi Kysymys lisätty onnistuneesti");
+			System.out.println("Uusi Kysymys lisï¿½tty onnistuneesti");
 			response.sendRedirect(request.getContextPath() + "/LisaaKysymys.jsp");
 			conn.close();
 
