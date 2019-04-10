@@ -55,7 +55,7 @@ try {
 
 <form action="LisaaKysymysHandler" method="POST">
 
-Kysymys ID<input type="text" name="kysymys_id"/><br>
+<!--Kysymys ID<input type="text" name="kysymys_id"/><br>-->
 Kysymys<input type="text" name="kysymys"/><br>
 
 <input type="submit" value='lisaaKysymys'/>

@@ -54,6 +54,11 @@ public class Vaalikone extends HttpServlet {
     	Long lukumaara=(Long)(ll.get(0));
     	String lkms = lukumaara.toString();
     	int a =Integer.parseInt(lkms);
+        if (em.getTransaction().isActive()) {
+            em.getTransaction().rollback();
+        }
+        em.close();
+        
 		return a;
 	}
 	
@@ -129,22 +134,18 @@ public class Vaalikone extends HttpServlet {
             }
 
             //jos kysymyksiä on vielä jäljellä, hae seuraava
-            if (kysymys_id < laskeK()) {
+            if (kysymys_id <= laskeK()) {
                 try {
                     //Hae haluttu kysymys tietokannasta
-                	
-                	
-                	
-//                	Query lkm=em.createNativeQuery("select count(*) from kysymykset");
-//                	List ll=lkm.getResultList();
-//                	Long lukumaara=(Long)(ll.get(0));
-//                	
+
                     Query q = em.createQuery(
-                            "SELECT k FROM Kysymykset k WHERE k.kysymysId=?1");
+                            "SELECT k FROM Kysymykset k WHERE k.kysymysId>=?1");
                     q.setParameter(1, kysymys_id);
-                    //Lue haluttu kysymys listaan
+                    
                     List<Kysymykset> kysymysList = q.getResultList();
-                    request.setAttribute("kysymykset", kysymysList);
+                    List<Kysymykset> tadaa = kysymysList.subList(0,1);
+                    //Lue haluttu kysymys listaan
+                    request.setAttribute("kysymykset", tadaa);
                     request.setAttribute("kysymyslkm", laskeK());
                     request.getRequestDispatcher("/vastaus.jsp")
                             .forward(request, response);
@@ -232,6 +233,7 @@ public class Vaalikone extends HttpServlet {
             List<Kysymykset> kaikkiKysymykset = q.getResultList();
             
             //ohjaa tiedot tulosten esityssivulle
+            request.setAttribute("laskeK", laskeK());
             request.setAttribute("kaikkiKysymykset", kaikkiKysymykset);
             request.setAttribute("kayttajanVastaukset", usr.getVastausLista());
             request.setAttribute("parhaanEhdokkaanVastaukset", parhaanEhdokkaanVastaukset);

@@ -37,7 +37,7 @@ public class LisaaKysymysHandler extends HttpServlet {
 		
 		String lisaa_kysymys = request.getParameter("lisaaKysymys");
 		
-		String kysymys_id = request.getParameter("kysymys_id");
+//		String kysymys_id = request.getParameter("kysymys_id");
 		String kysymys = request.getParameter("kysymys");
 		
 		try {
@@ -46,12 +46,12 @@ public class LisaaKysymysHandler extends HttpServlet {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			stm = conn.createStatement();
 			System.out.println("success");
-			String sql = "INSERT INTO kysymykset (KYSYMYS_ID, KYSYMYS) VALUES (?, ?)";
+			String sql = "INSERT INTO kysymykset (KYSYMYS) VALUES (?)";
 			System.out.println("1");
 			PreparedStatement statement = conn.prepareStatement(sql);
 			System.out.println("2");
-			statement.setString(1, kysymys_id);
-			statement.setString(2, kysymys);
+//			statement.setString(1, kysymys_id);
+			statement.setString(1, kysymys);
 
 			System.out.println("3");
 			statement.executeUpdate();

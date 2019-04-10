@@ -38,6 +38,10 @@ public class Kayttaja implements Serializable {
     	Long lukumaara=(Long)(ll.get(0));
     	String lkms = lukumaara.toString();
     	int a =Integer.parseInt(lkms);
+    	if (em.getTransaction().isActive()) {
+            em.getTransaction().rollback();
+        }
+        em.close();
 		return a;
 	}
     /**
