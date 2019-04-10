@@ -32,7 +32,7 @@ try {
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
 	PrintWriter iiii = response.getWriter();
-	iiii.print("<div class='wrapper'>");
+	iiii.print("<div id='wrapper'>");
 	while (rs.next()) {
 		%>
 		<tr>
