@@ -38,9 +38,30 @@ import persist.Vastaukset;
  * @author Jonne
  */
 public class Vaalikone extends HttpServlet {
-	
-	
-	
+
+	public int laskeK() {//palauttaa kysymyksien maaran inttina
+		EntityManagerFactory emf=null;
+        EntityManager em = null;
+        try {
+  	      emf=Persistence.createEntityManagerFactory("vaalikones");
+  	      em = emf.createEntityManager();
+        }
+        catch(Exception e) {
+
+        }
+		Query lkm=em.createNativeQuery("select count(*) from kysymykset");
+    	List ll=lkm.getResultList();
+    	Long lukumaara=(Long)(ll.get(0));
+    	String lkms = lukumaara.toString();
+    	int a =Integer.parseInt(lkms);
+        if (em.getTransaction().isActive()) {
+            em.getTransaction().rollback();
+        }
+        em.close();
+
+		return a;
+	}
+
     //hae java logger-instanssi
     private final static Logger logger = Logger.getLogger(Loki.class.getName());
 
@@ -67,7 +88,7 @@ public class Vaalikone extends HttpServlet {
         //jos käyttäjä-oliota ei löydy sessiosta, luodaan sinne sellainen
         if (usr == null) {
             usr = new Kayttaja();
-            logger.log(Level.FINE, "Luotu uusi k�ytt�j�olio");
+            logger.log(Level.FINE, "Luotu uusi k�ytt�j�olio");
             session.setAttribute("usrobj", usr);
         }
         EntityManagerFactory emf=null;
@@ -78,12 +99,12 @@ public class Vaalikone extends HttpServlet {
         }
         catch(Exception e) {
           	response.getWriter().println("EMF+EM EI Onnistu");
-          	
+
           	e.printStackTrace(response.getWriter());
-          	
+
           	return;
         }
-        
+
         //hae url-parametri func joka määrittää toiminnon mitä halutaan tehdä.
         //func=haeEhdokas: hae tietyn ehdokkaan tiedot ja vertaile niitä käyttäjän vastauksiin
         //Jos ei määritelty, esitetään kysymyksiä.
@@ -113,23 +134,19 @@ public class Vaalikone extends HttpServlet {
             }
 
             //jos kysymyksiä on vielä jäljellä, hae seuraava
-            if (kysymys_id < 20) {
+            if (kysymys_id <= laskeK()) {
                 try {
                     //Hae haluttu kysymys tietokannasta
-                	
-                	
-                	
-                	Query lkm=em.createNativeQuery("select count(*) from kysymykset");
-                	List ll=lkm.getResultList();
-                	Long lukumaara=(Long)(ll.get(0));
-                	
+
                     Query q = em.createQuery(
-                            "SELECT k FROM Kysymykset k WHERE k.kysymysId=?1");
+                            "SELECT k FROM Kysymykset k WHERE k.kysymysId>=?1");
                     q.setParameter(1, kysymys_id);
-                    //Lue haluttu kysymys listaan
+
                     List<Kysymykset> kysymysList = q.getResultList();
-                    request.setAttribute("kysymykset", kysymysList);
-                    request.setAttribute("kysymyslkm", lukumaara);
+                    List<Kysymykset> tadaa = kysymysList.subList(0,1);
+                    //Lue haluttu kysymys listaan
+                    request.setAttribute("kysymykset", tadaa);
+                    request.setAttribute("kysymyslkm", laskeK());
                     request.getRequestDispatcher("/vastaus.jsp")
                             .forward(request, response);
 
@@ -145,7 +162,7 @@ public class Vaalikone extends HttpServlet {
             } else {
 
                 //Tyhjennetään piste-array jotta pisteet eivät tuplaannu mahdollisen refreshin tapahtuessa
-                for (int i = 0; i < 20; i++) {
+                for (int i = 0; i < laskeK(); i++) {
                     usr.pisteet.set(i, new Tuple<>(0, 0));
                 }
 
@@ -171,7 +188,7 @@ public class Vaalikone extends HttpServlet {
                         //hae käyttäjän ehdokaskohtaiset pisteet
                         pisteet = usr.getPisteet(i);
 
-                        //laske oman ja ehdokkaan vastauksen perusteella pisteet 
+                        //laske oman ja ehdokkaan vastauksen perusteella pisteet
                         pisteet += laskePisteet(usr.getVastaus(i), eVastaus.getVastaus());
 
                         logger.log(Level.INFO, "eID: {0} / k: {1} / kV: {2} / eV: {3} / p: {4}", new Object[]{i, eVastaus.getVastauksetPK().getKysymysId(), usr.getVastaus(i), eVastaus.getVastaus(), pisteet});
@@ -214,8 +231,9 @@ public class Vaalikone extends HttpServlet {
             q = em.createQuery(
                     "SELECT k FROM Kysymykset k");
             List<Kysymykset> kaikkiKysymykset = q.getResultList();
-            
+
             //ohjaa tiedot tulosten esityssivulle
+            request.setAttribute("laskeK", laskeK());
             request.setAttribute("kaikkiKysymykset", kaikkiKysymykset);
             request.setAttribute("kayttajanVastaukset", usr.getVastausLista());
             request.setAttribute("parhaanEhdokkaanVastaukset", parhaanEhdokkaanVastaukset);
@@ -246,7 +264,7 @@ public class Vaalikone extends HttpServlet {
         if (kVastaus - eVastaus == 2 || kVastaus - eVastaus == -2 || kVastaus - eVastaus == 3 || kVastaus - eVastaus == -3) {
             pisteet = 1;
         }
-        
+
         //if (kVastaus - eVastaus == 4 || kVastaus - eVastaus == -4) pisteet = 0;
         return pisteet;
 

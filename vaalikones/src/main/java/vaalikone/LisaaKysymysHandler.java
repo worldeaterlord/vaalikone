@@ -40,7 +40,9 @@ public class LisaaKysymysHandler extends HttpServlet {
 		Connection conn;
 		Statement stm;
 
-		String kysymys_id = request.getParameter("kysymys_id");
+		String lisaa_kysymys = request.getParameter("lisaaKysymys");
+
+//		String kysymys_id = request.getParameter("kysymys_id");
 		String kysymys = request.getParameter("kysymys");
 
 		try {

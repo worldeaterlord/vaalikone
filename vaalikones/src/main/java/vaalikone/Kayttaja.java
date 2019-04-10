@@ -13,12 +13,37 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 /**
  *
  * @author Jonne
  */
 public class Kayttaja implements Serializable {
+	public int laskeK() { //palauttaa kysymyksien maaran inttina 
+		EntityManagerFactory emf=null;
+        EntityManager em = null;
+        try {
+  	      emf=Persistence.createEntityManagerFactory("vaalikones");
+  	      em = emf.createEntityManager();
+        }
+        catch(Exception e) {
 
+        }
+		Query lkm=em.createNativeQuery("select count(*) from kysymykset");
+    	List ll=lkm.getResultList();
+    	Long lukumaara=(Long)(ll.get(0));
+    	String lkms = lukumaara.toString();
+    	int a =Integer.parseInt(lkms);
+    	if (em.getTransaction().isActive()) {
+            em.getTransaction().rollback();
+        }
+        em.close();
+		return a;
+	}
     /**
 	 * 
 	 */
@@ -28,8 +53,8 @@ public class Kayttaja implements Serializable {
 	 */
 
 //	private final ArrayList<Integer> vastaus = new ArrayList<>(20);
-	private ArrayList<Integer> vastaus = new ArrayList<>(20);
-    ArrayList<Tuple<Integer, Integer>> pisteet = new ArrayList<>(20);
+	private ArrayList<Integer> vastaus = new ArrayList<>(laskeK());
+    ArrayList<Tuple<Integer, Integer>> pisteet = new ArrayList<>(laskeK());
 //    private final static Logger logger = Logger.getLogger(Loki.class.getName());
 
     /**
@@ -48,7 +73,7 @@ public class Kayttaja implements Serializable {
     public void taytaVastauksetJaPisteet() {
 
         //täytelläänhän listat valmiiksi
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < laskeK(); i++) {
             this.vastaus.add(0);
             this.pisteet.add(new Tuple<>(0, 0));
         }

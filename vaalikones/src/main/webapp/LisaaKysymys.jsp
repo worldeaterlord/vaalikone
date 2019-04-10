@@ -58,13 +58,16 @@ try {
 		<%
 		stmt.close();
 }
-	
+
  catch (Exception e) {
 }
 
 %>
 
-<form action="LisaaKysymysHandler" method="POST" onsubmit="return tarkista();">
+<form action="LisaaKysymysHandler" method="POST">
+
+<!--Kysymys ID<input type="text" name="kysymys_id"/><br>-->
+Kysymys<input type="text" name="kysymys"/><br>
 
 Kysymys ID<input id="kysid" type="text" name="kysymys_id"/><br>
 Kysymys<input id="kys" type="text" name="kysymys"/><br>

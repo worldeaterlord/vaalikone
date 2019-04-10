@@ -40,14 +40,25 @@ public class PoistaKysymysHandler extends HttpServlet {
 		try {
 			System.out.println("1");
 			con = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
-			System.out.println("2");
+
 			Statement stmt = con.createStatement();
-			System.out.println("3");
+			
 			stmt.executeUpdate("DELETE FROM kysymykset WHERE KYSYMYS_ID = " + kysymys);
+			try {
+				stmt.executeUpdate("ALTER TABLE kysymykset DROP COLUMN KYSYMYS_ID");
+				stmt.executeUpdate("ALTER TABLE kysymykset AUTO_INCREMENT = 1");
+				stmt.executeUpdate("ALTER TABLE kysymykset ADD KYSYMYS_ID int NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST");
+			}catch(Exception e) {
+				
+			}
+			
+
+			//ALTER TABLE `users` ADD `id` int UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;
+
 			System.out.println("4");
 			System.out.println("Kysymys poistettu");
 			response.sendRedirect(request.getContextPath() + "/PoistaKysymys.jsp");
-
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
