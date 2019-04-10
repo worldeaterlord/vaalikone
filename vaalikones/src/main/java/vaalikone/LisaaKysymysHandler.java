@@ -35,17 +35,14 @@ public class LisaaKysymysHandler extends HttpServlet {
 		Connection conn;
 		Statement stm;
 		
-		String lisaa_kysymys = request.getParameter("lisaaKysymys");
-		
 		String kysymys_id = request.getParameter("kysymys_id");
-		String Kysymys = request.getParameter("Kysymys");
+		String Kysymys = request.getParameter("kysymys");
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			stm = conn.createStatement();
-			request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 			System.out.println("success");
 			String sql = "INSERT INTO kysymykset (KYSYMYS_ID, KYSYMYS) VALUES (?, ?)";
 			System.out.println("1");
