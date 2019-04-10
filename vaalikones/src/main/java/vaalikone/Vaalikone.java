@@ -39,7 +39,23 @@ import persist.Vastaukset;
  */
 public class Vaalikone extends HttpServlet {
 	
+	public int laskeK() {//palauttaa kysymyksien maaran inttina 
+		EntityManagerFactory emf=null;
+        EntityManager em = null;
+        try {
+  	      emf=Persistence.createEntityManagerFactory("vaalikones");
+  	      em = emf.createEntityManager();
+        }
+        catch(Exception e) {
 
+        }
+		Query lkm=em.createNativeQuery("select count(*) from kysymykset");
+    	List ll=lkm.getResultList();
+    	Long lukumaara=(Long)(ll.get(0));
+    	String lkms = lukumaara.toString();
+    	int a =Integer.parseInt(lkms);
+		return a;
+	}
 	
     //hae java logger-instanssi
     private final static Logger logger = Logger.getLogger(Loki.class.getName());
@@ -57,7 +73,7 @@ public class Vaalikone extends HttpServlet {
             throws ServletException, IOException {
 
         int kysymys_id;
-
+        
         // hae http-sessio ja luo uusi jos vanhaa ei ole vielä olemassa
         HttpSession session = request.getSession(true);
 
@@ -113,23 +129,23 @@ public class Vaalikone extends HttpServlet {
             }
 
             //jos kysymyksiä on vielä jäljellä, hae seuraava
-            if (kysymys_id < 20) {
+            if (kysymys_id < laskeK()) {
                 try {
                     //Hae haluttu kysymys tietokannasta
                 	
                 	
                 	
-                	Query lkm=em.createNativeQuery("select count(*) from kysymykset");
-                	List ll=lkm.getResultList();
-                	Long lukumaara=(Long)(ll.get(0));
-                	
+//                	Query lkm=em.createNativeQuery("select count(*) from kysymykset");
+//                	List ll=lkm.getResultList();
+//                	Long lukumaara=(Long)(ll.get(0));
+//                	
                     Query q = em.createQuery(
                             "SELECT k FROM Kysymykset k WHERE k.kysymysId=?1");
                     q.setParameter(1, kysymys_id);
                     //Lue haluttu kysymys listaan
                     List<Kysymykset> kysymysList = q.getResultList();
                     request.setAttribute("kysymykset", kysymysList);
-                    request.setAttribute("kysymyslkm", lukumaara);
+                    request.setAttribute("kysymyslkm", laskeK());
                     request.getRequestDispatcher("/vastaus.jsp")
                             .forward(request, response);
 
@@ -145,7 +161,7 @@ public class Vaalikone extends HttpServlet {
             } else {
 
                 //Tyhjennetään piste-array jotta pisteet eivät tuplaannu mahdollisen refreshin tapahtuessa
-                for (int i = 0; i < 20; i++) {
+                for (int i = 0; i < laskeK(); i++) {
                     usr.pisteet.set(i, new Tuple<>(0, 0));
                 }
 
