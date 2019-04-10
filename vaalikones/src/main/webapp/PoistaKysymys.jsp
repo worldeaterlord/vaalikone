@@ -17,7 +17,6 @@ if(null!=uname){%>
 </head>
 <body>
 <h2>Poista Kysymys</h2>
-<div class="sqltulostus">
 <%
 try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -29,6 +28,7 @@ try {
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(query);
 	PrintWriter iiii = response.getWriter();
+	iiii.print("<div id='wrapper'>");
 	while (rs.next()) {
 		%>
 		<tr>

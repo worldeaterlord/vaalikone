@@ -55,7 +55,6 @@ public class LisaaHelper extends HttpServlet {
 
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			stm = conn.createStatement();
-			request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 			System.out.println("success");
 			String sql = "INSERT INTO ehdokkaat (EHDOKAS_ID, SUKUNIMI, ETUNIMI, PUOLUE, KOTIPAIKKAKUNTA, IKA, MIKSI_EDUSKUNTAAN, MITA_ASIOITA_HALUAT_EDISTAA, AMMATTI) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?)";
 			System.out.println("1");

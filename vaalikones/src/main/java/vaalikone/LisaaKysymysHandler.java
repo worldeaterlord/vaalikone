@@ -38,21 +38,20 @@ public class LisaaKysymysHandler extends HttpServlet {
 		String lisaa_kysymys = request.getParameter("lisaaKysymys");
 		
 		String kysymys_id = request.getParameter("kysymys_id");
-		String Kysymys = request.getParameter("Kysymys");
+		String kysymys = request.getParameter("kysymys");
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			stm = conn.createStatement();
-			request.getRequestDispatcher("/AdminPage.jsp").forward(request, response);
 			System.out.println("success");
 			String sql = "INSERT INTO kysymykset (KYSYMYS_ID, KYSYMYS) VALUES (?, ?)";
 			System.out.println("1");
 			PreparedStatement statement = conn.prepareStatement(sql);
 			System.out.println("2");
 			statement.setString(1, kysymys_id);
-			statement.setString(2, Kysymys);
+			statement.setString(2, kysymys);
 
 			System.out.println("3");
 			statement.executeUpdate();
