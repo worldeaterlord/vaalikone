@@ -39,7 +39,7 @@ import persist.Vastaukset;
  */
 public class Vaalikone extends HttpServlet {
 	
-
+	
 	
     //hae java logger-instanssi
     private final static Logger logger = Logger.getLogger(Loki.class.getName());

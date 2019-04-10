@@ -12,6 +12,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Lisaa ehdokas sivu</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script>
+function tarkista(){
+	var del=document.getElementsByClassName("kentta").value;
+	var msg="kenttä ei saa olla tyhjä"
+	var i;
+
+	console.log(del);
+	for(i = 0; i < del.length; i++){
+		if (del[i].length<=0){
+			document.getElementById("error").innerHTML = msg
+			return false;
+		}
+		return true;
+	}
+}
+</script>
 </head>
 <body>
 <%String uname =(String)session.getAttribute("uname");
@@ -57,22 +73,21 @@ try {
 </form>
 
 
-<form action="LisaaHelper" method="POST">
+<form action="LisaaHelper" method="POST" onsubmit="return tarkista();">
 
-Ehdokas ID<input type="text" name="id"/><br>
-Sukunimi<input type="text" name="Sukunimi"/><br>
-Etunimi<input type="text" name="Etunimi"/><br>
-Puolue<input type="text" name="Puolue"/><br>
-Kotipaikkakunta<input type="text" name="Kotipaikkakunta"/><br>
-Ikä<input type="text" name="ikä"/><br>
-Miksi eduskuntaan<input type="text" name="Miksieduskuntaan"/><br>
-Mitä asioita haluat edistää<input type="text" name="MitäAsioitaHauluatEdistää"/><br>
-Ammatti<input type="text" name="Ammatti"/><br>
+Ehdokas ID					<input class="kentta" type="text" name="id"/><br>
+Sukunimi					<input class="kentta" type="text" name="Sukunimi"/><br>
+Etunimi						<input class="kentta" type="text" name="Etunimi"/><br>
+Puolue						<input class="kentta" type="text" name="Puolue"/><br>
+Kotipaikkakunta				<input class="kentta" type="text" name="Kotipaikkakunta"/><br>
+Ikä							<input class="kentta" type="text" name="ikä"/><br>
+Miksi eduskuntaan			<input class="kentta" type="text" name="Miksieduskuntaan"/><br>
+Mitä asioita haluat edistää	<input class="kentta" type="text" name="MitäAsioitaHauluatEdistää"/><br>
+Ammatti						<input class="kentta" type="text" name="Ammatti"/><br>
 <input type="submit" value='lisaa'/>
-
 </form>
 
-</div>
+<div id="error"></div>
 </body>
 </html>
 <% }else{

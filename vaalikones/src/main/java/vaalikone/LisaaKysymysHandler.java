@@ -1,6 +1,7 @@
 package vaalikone;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.apphosting.api.DatastorePb.AllocateIdsRequest;
 
 /**
  * Servlet implementation class LisaaKysymysHandler
@@ -45,25 +48,18 @@ public class LisaaKysymysHandler extends HttpServlet {
 
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/vaalikone", "root", "");
 			stm = conn.createStatement();
-			System.out.println("success");
 			String sql = "INSERT INTO kysymykset (KYSYMYS_ID, KYSYMYS) VALUES (?, ?)";
-			System.out.println("1");
 			PreparedStatement statement = conn.prepareStatement(sql);
-			System.out.println("2");
 			statement.setString(1, kysymys_id);
 			statement.setString(2, kysymys);
-
-			System.out.println("3");
 			statement.executeUpdate();
 			System.out.println("Uusi Kysymys lis�tty onnistuneesti");
 			response.sendRedirect(request.getContextPath() + "/LisaaKysymys.jsp");
 			conn.close();
-
 		} catch (Exception ex) {
 			System.out.println("error");
 			System.out.println(ex.getMessage());
 		}
-
 	}
 
 	/**

@@ -14,6 +14,17 @@ if(null!=uname){%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>>Poista Ehdokas</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script>
+function tarkista(){
+	var del=document.getElementById("pst").value;
+	var msg="kenttä ei saa olla tyhjä"
+	if (del.length<=0){
+		document.getElementById("error").innerHTML = msg;
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
 <h2>Poista Ehdokas</h2>
@@ -52,16 +63,15 @@ try {
 }
 
 %>
-<form action="PoistaHandler" method="POST">
+<form action="PoistaHandler" method="POST" onsubmit="return tarkista();">
 
-Ehdokas ID<input type="text" name="poista"/><br>
+Ehdokas ID<input id="pst" type="text" name="poista"/><br>
 <input type="submit" value='delete'/>
 
 </form>
+<div id="error">
+
 </div>
-
-
-
 </body>
 </html>
 <% }else{
