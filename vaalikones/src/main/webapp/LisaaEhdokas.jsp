@@ -14,19 +14,18 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
 function tarkista(){
-	var del=document.getElementsByClassName("kentta").value;
-	var msg="kenttä ei saa olla tyhjä"
+	var kentat=document.getElementsByClassName("kentta");
+	var array = Array.from(kentat);
+	var msg="Tarkista kaikki kentät"
 	var i;
 
-	console.log(del);
-	for(i = 0; i < del.length; i++){
-		if (del[i].length<=0){
-			document.getElementById("error").innerHTML = msg
-			return false;
-		}
-		return true;
+	for(i = 0; i < kentat.length; i++){
+		if(kentat[i].value == "")
+			document.getElementById("error").innerHTML = msg;
+		return false;
 	}
-}
+	return true;
+} 
 </script>
 </head>
 <body>
