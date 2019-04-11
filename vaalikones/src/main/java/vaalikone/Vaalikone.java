@@ -39,7 +39,7 @@ import persist.Vastaukset;
  */
 public class Vaalikone extends HttpServlet {
 
-	public int laskeK() {//palauttaa kysymyksien maaran inttina
+	public int laskeK() {//palauttaa kysymyksien maaran int
 		EntityManagerFactory emf=null;
         EntityManager em = null;
         try {
@@ -49,11 +49,10 @@ public class Vaalikone extends HttpServlet {
         catch(Exception e) {
 
         }
-		Query lkm=em.createNativeQuery("select count(*) from kysymykset");
-    	List ll=lkm.getResultList();
-    	Long lukumaara=(Long)(ll.get(0));
-    	String lkms = lukumaara.toString();
-    	int a =Integer.parseInt(lkms);
+		Query q=em.createNativeQuery("select count(*) from kysymykset");
+    	List l=q.getResultList();
+    	long lkm=(long)(l.get(0));
+    	int a = (int)lkm;
         if (em.getTransaction().isActive()) {
             em.getTransaction().rollback();
         }

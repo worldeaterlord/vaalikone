@@ -17,7 +17,7 @@ function tarkista(){
 
 	var k=document.getElementById("kys").value;
 	var msg="Kysymys -kenttä ei saa olla tyhjä"
-
+	
 	if (k.length<=0){
 		document.getElementById("error").innerHTML = msg;
 		return false;

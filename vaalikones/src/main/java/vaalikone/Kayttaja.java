@@ -23,7 +23,7 @@ import javax.persistence.Query;
  * @author Jonne
  */
 public class Kayttaja implements Serializable {
-	public int laskeK() { //palauttaa kysymyksien maaran inttina 
+	public int laskeK() {//palauttaa kysymyksien maaran int
 		EntityManagerFactory emf=null;
         EntityManager em = null;
         try {
@@ -33,15 +33,15 @@ public class Kayttaja implements Serializable {
         catch(Exception e) {
 
         }
-		Query lkm=em.createNativeQuery("select count(*) from kysymykset");
-    	List ll=lkm.getResultList();
-    	Long lukumaara=(Long)(ll.get(0));
-    	String lkms = lukumaara.toString();
-    	int a =Integer.parseInt(lkms);
-    	if (em.getTransaction().isActive()) {
+		Query q=em.createNativeQuery("select count(*) from kysymykset");
+    	List l=q.getResultList();
+    	long lkm=(long)(l.get(0));
+    	int a = (int)lkm;
+        if (em.getTransaction().isActive()) {
             em.getTransaction().rollback();
         }
         em.close();
+
 		return a;
 	}
     /**
