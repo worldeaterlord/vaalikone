@@ -59,6 +59,8 @@ CREATE TABLE KAYTTAJAT(
 	tunnus VARCHAR(45) NOT NULL,
 	salasana VARCHAR(45) NOT NULL,
 	PRIMARY KEY(id));
+	
+INSERT INTO KAYTTAJAT VALUES (1, "dev", "qwerty");
 
 
 -- insert values into the table ehdokkaat
