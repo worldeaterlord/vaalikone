@@ -14,9 +14,10 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
 function tarkista(){
-	
+
 	var k=document.getElementById("kys").value;
-	var msg="id tai kysymys -kenttä eivät saa olla tyhjiä"
+	var msg="Kysymys -kenttä ei saa olla tyhjä"
+
 	if (k.length<=0){
 		document.getElementById("error").innerHTML = msg;
 		return false;
@@ -64,7 +65,7 @@ try {
 
 %>
 
-<form action="LisaaKysymysHandler" method="POST">
+<form action="LisaaKysymysHandler" method="POST" onsubmit="return tarkista();">
 
 Kysymys<input id="kys" type="text" name="kysymys"/><br>
 

@@ -12,6 +12,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>>Muokkaa Ehdokasta</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script>
+function tarkista(){
+	var kentat=document.getElementsByClassName("kentta");
+	var array = Array.from(kentat);
+	var msg="Tarkista kaikki kentät"
+	var i;
+
+	for(i = 0; i < kentat.length; i++){
+		if(kentat[i].value == "")
+			document.getElementById("error").innerHTML = msg;
+		return false;
+	}
+	return true;
+} 
+</script>
 </head>
 <body>
 <%String uname =(String)session.getAttribute("uname");
@@ -53,24 +68,22 @@ try {
 
 %>
 
-<form action="MuokkaaHelper" method="POST">
+<form action="MuokkaaHelper" method="POST" onsubmit="return tarkista();">
 
-Ehdokas ID<input type="text" name="id"/><br>
-Sukunimi<input type="text" name="Sukunimi"/><br>
-Etunimi<input type="text" name="Etunimi"/><br>
-Puolue<input type="text" name="Puolue"/><br>
-KotiPaikkaKunta<input type="text" name="Kotipaikkakunta"/><br>
-Ikä<input type="text" name="ikä"/><br>
-Miksi Eduskuntaan<input type="text" name="MiksiEduskuntaan"/><br>
-Mitä asioita haluat edistää<input type="text" name="MitäAsioitaHauluatEdistää"/><br>
-Ammatti<input type="text" name="Ammatti"/><br>
+Ehdokas ID					<input class="kentta" type="text" name="id"/><br>
+Sukunimi					<input class="kentta" type="text" name="Sukunimi"/><br>
+Etunimi						<input class="kentta" type="text" name="Etunimi"/><br>
+Puolue						<input class="kentta" type="text" name="Puolue"/><br>
+KotiPaikkaKunta				<input class="kentta" type="text" name="Kotipaikkakunta"/><br>
+Ikä							<input class="kentta" type="text" name="ikä"/><br>
+Miksi Eduskuntaan			<input class="kentta" type="text" name="MiksiEduskuntaan"/><br>
+Mitä asioita haluat edistää	<input class="kentta" type="text" name="MitäAsioitaHauluatEdistää"/><br>
+Ammatti						<input class="kentta" type="text" name="Ammatti"/><br>
 <input type="submit" value='lisaa'/>
 
 </form>
+<div id="error"></div>
 </div>
-
-
-
 </body>
 </html>
 <% }else{
