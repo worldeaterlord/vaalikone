@@ -73,7 +73,7 @@ public class Kayttaja implements Serializable {
     public void taytaVastauksetJaPisteet() {
 
         //täytelläänhän listat valmiiksi
-        for (int i = 0; i < laskeK(); i++) {
+        for (int i = 0; i <= laskeK(); i++) {
             this.vastaus.add(0);
             this.pisteet.add(new Tuple<>(0, 0));
         }
@@ -118,7 +118,9 @@ public class Kayttaja implements Serializable {
      * @return Yksittäinen integer-muotoinen vastaus käyttäjän vastaus-listasta
      */
     public Integer getVastaus(int index) {
-        return this.vastaus.get(index);
+    	
+		return this.vastaus.get(index);
+
     }
 
     /**
@@ -128,10 +130,14 @@ public class Kayttaja implements Serializable {
      * @param vastaus vastauksen arvo
      */
     public void addVastaus(Integer index, Integer vastaus) {
+    	try {
     	if (this.vastaus.size()==0) {
     		taytaVastauksetJaPisteet();
     	}
         this.vastaus.set(index, vastaus);
+    	}catch(Exception e) {
+    		
+    	}
     }
 
     /**
@@ -145,17 +151,8 @@ public class Kayttaja implements Serializable {
          *  Javan Collections.sort oletuksena järjestää listat pienimmästä suurimpaan
          *  Collections.reverseOrder kääntää järjestyksen toisin päin
          */
-    	try {
-			
-		} catch (Exception e) {
-			Collections.sort(this.pisteet, Collections.reverseOrder(comparator));
-		}
-        
-    			
-        
-//        this.pisteet.stream().forEach((tpl) -> {
-//            logger.log(Level.INFO, "Ehdokas ID={0} pisteet={1}", new Object[]{tpl.ehdokasId, tpl.pisteet});
-//        });
+    	
+		Collections.sort(this.pisteet, Collections.reverseOrder(comparator));
 
         return this.pisteet;
     }

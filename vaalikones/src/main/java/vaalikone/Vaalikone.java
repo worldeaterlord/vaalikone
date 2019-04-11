@@ -147,8 +147,7 @@ public class Vaalikone extends HttpServlet {
                     //Lue haluttu kysymys listaan
                     request.setAttribute("kysymykset", tadaa);
                     request.setAttribute("kysymyslkm", laskeK());
-                    request.getRequestDispatcher("/vastaus.jsp")
-                            .forward(request, response);
+                    request.getRequestDispatcher("/vastaus.jsp").forward(request, response);
 
                 } finally {
                     // Sulje tietokantayhteys

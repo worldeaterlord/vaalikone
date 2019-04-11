@@ -30,7 +30,7 @@ function tarkista(){
 <%String uname =(String)session.getAttribute("uname");
 if(null!=uname){%>
 <h2>Lisää uusi kysymys</h2>
-<div>
+
 <%
 try {
 

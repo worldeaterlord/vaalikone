@@ -53,8 +53,6 @@ public class PoistaKysymysHandler extends HttpServlet {
 			}
 			
 
-			//ALTER TABLE `users` ADD `id` int UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;
-
 			System.out.println("4");
 			System.out.println("Kysymys poistettu");
 			response.sendRedirect(request.getContextPath() + "/PoistaKysymys.jsp");

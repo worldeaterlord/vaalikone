@@ -7,17 +7,20 @@ package vaalikone;
 
 import java.io.Serializable;
 
+	
 /**
  *
  * @author Jonne
  * @param <E>
  * @param <F>
+ * @param <T>
  */
-public class Tuple<E,F> implements Serializable{
+public class Tuple<E,F> implements Serializable, Comparable<Tuple<Integer, Integer>>{
 
     /**
      *
      */
+	private static final long serialVersionUID = 1L;
     public E ehdokasId;
 
     /**
@@ -37,5 +40,10 @@ public class Tuple<E,F> implements Serializable{
         this.ehdokasId=e;
         this.pisteet=f;
     }
+    
+    public int compareTo(Tuple<Integer, Integer> o) {
+    	return (int)this.pisteet - o.pisteet.intValue();
+    }
+
     
 }

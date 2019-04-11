@@ -17,7 +17,7 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="wrapper">
+        <div id="tuloksetWrapper">
             <h1>Diginide kertoo sinulle, ketä pitää äänestää:</h1>
             <%
                 List<Ehdokkaat> parhaatEhdokkaat = (List<Ehdokkaat>) request.getAttribute("parasEhdokas");
@@ -64,7 +64,7 @@
                 <li>Ehdokkaan kommentti: <%= parhaanEhdokkaanVastaukset.get(i).getKommentti()%></li>
             </ul>
 
-
+			
             <%
                 }
 
