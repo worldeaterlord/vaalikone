@@ -16,7 +16,9 @@
 	%>
 	<div id="wrapper">
 		<h2>Tervetuloa Admin sivulle</h2>
-
+		<form action=index.html class="vastausformi">
+			<input type="submit" id="Etusivu" value="Etusivu" />
+		</form>
 		<div>Alla olevasta painikkeesta pääset muokkaamaan, lisäämään ja
 			poistamaan ehdokkaita</div>
 		<br>
@@ -44,10 +46,11 @@
 			<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
 		</form>
 		<div id="themeslot">
-			<a href="#" onclick="swapStyleSheet('style.css');">Vaalikone</a> <a
+			<!--  <a href="#" onclick="swapStyleSheet('style.css');">Vaalikone</a> <a
 				href="#" onclick="swapStyleSheet('jalkapallostyle.css');">Jalkapallo</a>
+				-->
 			<label class="switch"> <input type="checkbox" id="myCheckbox"
-				onchange="toggleCheck()" checked> <span class="slider"></span>
+				onchange="toggleCheck()" checked=""> <span class="slider"></span>
 			</label>
 		</div>
 		<footer class="foot">

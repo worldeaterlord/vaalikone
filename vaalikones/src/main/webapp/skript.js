@@ -30,12 +30,12 @@
 	function toggleCheck() {
 		  if(document.getElementById("myCheckbox").checked === true){
 		    swapStyleSheet("jalkapallostyle.css");
+
 		  } else {
 		    swapStyleSheet("style.css")
 		  }
 		}
 	
 	window.onload = _ =>
-	 swapStyleSheet(
-	  localStorage.getItem("sheet") || "style.css"
+	 swapStyleSheet(localStorage.getItem("sheet") || "jalkapallostyle.css"
 	 );
