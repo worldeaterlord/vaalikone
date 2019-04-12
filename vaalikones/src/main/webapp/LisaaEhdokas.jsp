@@ -11,7 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Lisaa ehdokas sivu</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link id="theme" href="style.css" rel="stylesheet" type="text/css">
+<script src="skript.js"></script>
 <script>
 function tarkista(){
 	var kentat=document.getElementsByClassName("kentta");

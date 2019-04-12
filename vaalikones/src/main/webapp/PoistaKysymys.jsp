@@ -13,7 +13,8 @@ if(null!=uname){%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>>Poista Kysymys</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link id="theme" href="style.css" rel="stylesheet" type="text/css">
+<script src="skript.js"></script>
 <script>
 	function tarkista() {
 		var del = document.getElementById("pst").value;
