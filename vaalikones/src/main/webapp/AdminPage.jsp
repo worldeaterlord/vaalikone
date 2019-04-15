@@ -14,6 +14,9 @@
 		String uname = (String) session.getAttribute("uname");
 		if (null != uname) {
 	%>
+	<script>
+
+	</script>
 	<div id="wrapper">
 		<h2>Tervetuloa Admin sivulle</h2>
 		<form action=index.html class="vastausformi">
@@ -45,21 +48,15 @@
 		<form action="LisaaEhdokas.jsp" class="vastausformi">
 			<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
 		</form>
-		<div id="themeslot">
-			<!--  <a href="#" onclick="swapStyleSheet('style.css');">Vaalikone</a> <a
-				href="#" onclick="swapStyleSheet('jalkapallostyle.css');">Jalkapallo</a>
-				-->
+
 			<label class="switch"> <input type="checkbox" id="myCheckbox"
 				onchange="toggleCheck()" checked="checked"> <span
 				class="slider"></span>
 			</label>
-			<form action="JalkapalloLisaa.jsp" class="vastausformi">
-			<input type="submit" id="LisaaEhdokas" value="Jalkapallo_Lisää_ehdokas" />
-		</form>
-		</div>
 		<footer class="foot">
 			<p>Robot3000</p>
 		</footer>
+		</div>
 	</div>
 </body>
 </html>
@@ -68,5 +65,3 @@
 		response.sendRedirect("http://localhost:8080/index.html");
 	}
 %>
-
-
