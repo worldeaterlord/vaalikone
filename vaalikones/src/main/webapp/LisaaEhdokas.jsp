@@ -75,15 +75,15 @@ try {
 
 <form action="LisaaHelper" method="POST" onsubmit="return tarkista();">
 
-Ehdokas ID					<input class="kentta" type="text" name="id"/><br>
-Sukunimi					<input class="kentta" type="text" name="Sukunimi"/><br>
-Etunimi						<input class="kentta" type="text" name="Etunimi"/><br>
-Puolue						<input class="kentta" type="text" name="Puolue"/><br>
-Kotipaikkakunta				<input class="kentta" type="text" name="Kotipaikkakunta"/><br>
-Ikä							<input class="kentta" type="text" name="ikä"/><br>
-Miksi eduskuntaan			<input class="kentta" type="text" name="Miksieduskuntaan"/><br>
-Mitä asioita haluat edistää	<input class="kentta" type="text" name="MitäAsioitaHauluatEdistää"/><br>
-Ammatti						<input class="kentta" type="text" name="Ammatti"/><br>
+Ehdokas ID					<input class="ehdokas" type="text" name="id"/><br>
+Sukunimi					<input class="ehdokas" type="text" name="Sukunimi"/><br>
+Etunimi						<input class="ehdokas" type="text" name="Etunimi"/><br>
+Puolue						<input class="ehdokas" type="text" name="Puolue"/><br>
+Kotipaikkakunta				<input class="ehdokas" type="text" name="Kotipaikkakunta"/><br>
+Ikä							<input class="ehdokas" type="text" name="ikä"/><br>
+Miksi eduskuntaan			<input class="ehdokas" type="text" name="Miksieduskuntaan"/><br>
+Mitä asioita haluat edistää	<input class="ehdokas" type="text" name="MitäAsioitaHauluatEdistää"/><br>
+Ammatti						<input class="ehdokas" type="text" name="Ammatti"/><br>
 <input type="submit" value='lisaa'/>
 </form>
 

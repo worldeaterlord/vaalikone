@@ -37,5 +37,5 @@
 		}
 	
 	window.onload = _ =>
-	 swapStyleSheet(localStorage.getItem("sheet") || "jalkapallostyle.css"
+	 swapStyleSheet(localStorage.getItem("sheet") 
 	 );

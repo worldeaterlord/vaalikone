@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.eclipse.persistence.internal.libraries.asm.tree.TryCatchBlockNode"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.google.apphosting.api.DatastorePb.AllocateIdsRequest"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+<fullyQualifiedTypeName name="entity.Puheenjohtaja"/>
+<fullyQualifiedTypeName name="org.eclipse.persistence.internal.libraries.asm.tree.TryCatchBlockNode"/>
+<fullyQualifiedTypeName name="javax.servlet.jsp.tagext.TryCatchFinally"/>
+<fullyQualifiedTypeName name="javax.persistence.Persistence"/>
+<fullyQualifiedTypeName name="vaalikone.EmClass"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
 </qualifiedTypeNameHistroy>

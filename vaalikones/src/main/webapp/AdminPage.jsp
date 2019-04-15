@@ -50,8 +50,12 @@
 				href="#" onclick="swapStyleSheet('jalkapallostyle.css');">Jalkapallo</a>
 				-->
 			<label class="switch"> <input type="checkbox" id="myCheckbox"
-				onchange="toggleCheck()" checked=""> <span class="slider"></span>
+				onchange="toggleCheck()" checked="checked"> <span
+				class="slider"></span>
 			</label>
+			<form action="JalkapalloLisaa.jsp" class="vastausformi">
+			<input type="submit" id="LisaaEhdokas" value="Jalkapallo_Lisää_ehdokas" />
+		</form>
 		</div>
 		<footer class="foot">
 			<p>Robot3000</p>
