@@ -15,7 +15,7 @@
 		if (null != uname) {
 	%>
 	<script>
-
+		
 	</script>
 	<div id="wrapper">
 		<h2>Tervetuloa Admin sivulle</h2>
@@ -49,14 +49,16 @@
 			<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
 		</form>
 
-			<label class="switch"> <input type="checkbox" id="myCheckbox"
-				onchange="toggleCheck()" checked="checked"> <span
-				class="slider"></span>
-			</label>
+		<label class="switch"> <input type="checkbox" id="myCheckbox"
+			onchange="toggleCheck()" checked="checked"> <span
+			class="slider"></span>
+		</label>
+		<form action="JalkapalloLisaa.jsp" class="vastausformi">
+			<input type="submit" id="JalkapalloLisaa" value="Lisää puheenjohtajaehdokas" />
+		</form>
 		<footer class="foot">
 			<p>Robot3000</p>
 		</footer>
-		</div>
 	</div>
 </body>
 </html>

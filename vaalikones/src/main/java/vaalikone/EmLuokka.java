@@ -53,7 +53,7 @@ public class EmLuokka extends HttpServlet {
 		pj.setPelipaikka(pp);
 		em.persist(pj);
 		em.getTransaction().commit();
-		
+		response.sendRedirect(request.getContextPath()+"/JalkapalloLisaa.jsp");
 	}
 
 	/**
