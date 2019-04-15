@@ -49,17 +49,13 @@
 			<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
 		</form>
 
-		<!-- <div id="themeslot">
-			  <a href="#" onclick="swapStyleSheet('style.css');">Vaalikone</a> <a
-				href="#" onclick="swapStyleSheet('jalkapallostyle.css');">Jalkapallo</a>
-				-->
 			<label class="switch"> <input type="checkbox" id="myCheckbox"
 				onchange="toggleCheck()" checked=""> <span class="slider"></span>
 			</label>
-		</div>
 		<footer class="foot">
 			<p>Robot3000</p>
 		</footer>
+		</div>
 	</div>
 </body>
 </html>
