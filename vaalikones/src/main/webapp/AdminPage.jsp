@@ -14,6 +14,9 @@
 		String uname = (String) session.getAttribute("uname");
 		if (null != uname) {
 	%>
+	<script>
+	
+	</script>
 	<div id="wrapper">
 		<h2>Tervetuloa Admin sivulle</h2>
 		<form action=index.html class="vastausformi">
@@ -45,8 +48,9 @@
 		<form action="LisaaEhdokas.jsp" class="vastausformi">
 			<input type="submit" id="LisaaEhdokas" value="Lisää ehdokas" />
 		</form>
-		<div id="themeslot">
-			<!--  <a href="#" onclick="swapStyleSheet('style.css');">Vaalikone</a> <a
+
+		<!-- <div id="themeslot">
+			  <a href="#" onclick="swapStyleSheet('style.css');">Vaalikone</a> <a
 				href="#" onclick="swapStyleSheet('jalkapallostyle.css');">Jalkapallo</a>
 				-->
 			<label class="switch"> <input type="checkbox" id="myCheckbox"
