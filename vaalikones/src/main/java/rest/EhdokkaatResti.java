@@ -13,42 +13,37 @@ import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.google.appengine.repackaged.com.google.gson.Gson;
+
 import persist.Ehdokkaat;
 
-@Path("/riistaservice")
+import model.AccessManager;
+
+@Path("/ehdokkaatResti")
 public class EhdokkaatResti {
-
+	
 	@GET
-	@Path("/riista")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Ehdokkaat getEhdokasId() {
-		System.out.println("Hei vain");
-		Ehdokkaat r=new Ehdokkaat();
-		return r;
-		
-		
+	@Path("/courses")
+	@Produces("application/json")
+	public String courses()
+	{
+	String courses = null;
+	ArrayList<Ehdokkaat> courseList = new ArrayList<Ehdokkaat>();
+	try
+	{
+	courseList = new AccessManager().getCourses();
+	Gson gson = new Gson();
+	courses = gson.toJson(courseList);
+	} catch (Exception e)
+	{
+	e.printStackTrace();
 	}
-	@POST
-	@Path("/ehdokas")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Ehdokkaat postEhdokas(Ehdokkaat r) {
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(r);
-		em.getTransaction().commit();
-		
-		System.out.println(r.getEhdokasId());
-		r.getEhdokasId();
-		r.getSukunimi();
-		r.getEtunimi();		
-		return r;
+	return courses;
 	}
-
-}
+	}
