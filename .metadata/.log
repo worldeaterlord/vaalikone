@@ -10406,3 +10406,12 @@ java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquir
 	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2311)
 	at org.eclipse.jdt.internal.core.JavaModelManager$20.run(JavaModelManager.java:5423)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:60)
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-23 10:46:27.157
+!MESSAGE No repository found at http://download.eclipse.org/usssdk/drops/nightly/N940.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-23 10:46:29.822
+!MESSAGE No repository found at http://download.eclipse.org/egit/update.
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-23 10:48:49.967
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
