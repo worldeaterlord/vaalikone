@@ -14,36 +14,38 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
+import java.util.List;
 import com.google.appengine.repackaged.com.google.gson.Gson;
 
 import persist.Ehdokkaat;
 
-import model.AccessManager;
-
 @Path("/ehdokkaatResti")
 public class EhdokkaatResti {
-	
+
 	@GET
-	@Path("/courses")
+	@Path("/courses1")
 	@Produces("application/json")
-	public String courses()
-	{
-	String courses = null;
-	ArrayList<Ehdokkaat> courseList = new ArrayList<Ehdokkaat>();
-	try
-	{
-	courseList = new AccessManager().getCourses();
-	Gson gson = new Gson();
-	courses = gson.toJson(courseList);
-	} catch (Exception e)
-	{
-	e.printStackTrace();
+	public List<Object> courses1() {
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("vaalikones");
+		EntityManager entitymanager = emfactory.createEntityManager();
+
+		CriteriaBuilder criteriaBuilder = entitymanager.getCriteriaBuilder();
+		CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery();
+		Root<Ehdokkaat> from = criteriaQuery.from(Ehdokkaat.class);
+
+		CriteriaQuery<Object> select = criteriaQuery.select(from);
+		TypedQuery<Object> typedQuery = entitymanager.createQuery(select);
+		List<Object> resultlist = typedQuery.getResultList();
+		return resultlist;
+
 	}
-	return courses;
-	}
-	}
+
+}
