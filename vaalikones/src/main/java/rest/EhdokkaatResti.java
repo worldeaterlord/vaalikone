@@ -31,25 +31,32 @@ import com.google.appengine.repackaged.com.google.gson.Gson;
 import persist.Ehdokkaat;
 import vaalikone.EmClass;
 
-import model.AccessManager;
-
 @Path("/ehd")
 public class EhdokkaatResti {
 
+	@GET
+	@Produces(MediaType.TEXT_HTML)
+	public String a() {
+		String b = "<html>"
+				+ "<body>"
+				+ "<a href='http://localhost:8080/rest/ehd/kaikki'>"
+				+ "<input type='button' value='Visit kaikki' />"
+				+ "</a>"
+				+ "</body>"
+				+ "</head>";
+		return b;
+	}
+	
 	@GET
 	@Path("/kaikki")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Ehdokkaat> getKaikki() {
 		ArrayList<Ehdokkaat> lista = new ArrayList<>();
-		{
-			EntityManager em = EmClass.getEm();
-			Query query = em.createNamedQuery("Ehdokkaat.findAll");
+		EntityManager em = EmClass.getEm();
+		Query query = em.createNamedQuery("Ehdokkaat.findAll");
 
-			lista.addAll(query.getResultList());
-			return lista;
-
-
-		}
+		lista.addAll(query.getResultList());
+		return lista;
 	}
 
 	@GET
@@ -57,12 +64,10 @@ public class EhdokkaatResti {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Ehdokkaat> poistaYksi() {
 		ArrayList<Ehdokkaat> lista = new ArrayList<>();
-		{
 			EntityManager em = EmClass.getEm();
 			Query query = em.createNamedQuery("Ehdokkaat.findAll");
 
 			lista.addAll(query.getResultList());
 			return lista;
-		}
 	}
 }

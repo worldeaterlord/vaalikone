@@ -9,6 +9,7 @@
 <fullyQualifiedTypeName name="org.eclipse.persistence.internal.libraries.asm.tree.TryCatchBlockNode"/>
 <fullyQualifiedTypeName name="javax.servlet.jsp.tagext.TryCatchFinally"/>
 <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
-<fullyQualifiedTypeName name="vaalikone.EmClass"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
+<fullyQualifiedTypeName name="com.google.api.services.discovery.Discovery.Apis.List"/>
+<fullyQualifiedTypeName name="vaalikone.EmClass"/>
 </qualifiedTypeNameHistroy>

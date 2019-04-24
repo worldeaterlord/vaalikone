@@ -1,7 +1,6 @@
 INDEX VERSION 1.131+C:\Vaalikone\.metadata\.plugins\org.eclipse.jdt.core
 3392466534.index
 850788036.index
-2696432407.index
 2597684011.index
 1206957371.index
 2308409024.index
