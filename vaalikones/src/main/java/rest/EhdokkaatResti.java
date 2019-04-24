@@ -13,6 +13,7 @@ import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
@@ -20,11 +21,14 @@ import javax.ws.rs.core.Response;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import com.google.api.services.discovery.Discovery.Apis.List;
+import com.google.appengine.repackaged.com.google.gson.Gson;
+
 import persist.Ehdokkaat;
 import vaalikone.EmClass;
 
-@Path("/riistaservice")
+import model.AccessManager;
+
+@Path("/ehdokkaatResti")
 public class EhdokkaatResti {
 
 	@GET
@@ -44,8 +48,8 @@ public class EhdokkaatResti {
 		Query query = em.createNamedQuery("Ehdokkaat.findAll",Ehdokkaat.class);
 		ArrayList<Ehdokkaat> results = (ArrayList<Ehdokkaat>) query.getResultList();
 		return results;
-		
-		
+
+
 //		ArrayList<Ehdokkaat> lista = new ArrayList<>();
 //		for (int i = 0; i < 5; i++) {
 //			Ehdokkaat r = new Ehdokkaat();
@@ -53,5 +57,4 @@ public class EhdokkaatResti {
 //		}
 //		return lista;
 	}
-
-}
+	}
