@@ -17,8 +17,12 @@ import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
+import com.google.api.services.discovery.Discovery.Apis.List;
 import persist.Ehdokkaat;
+import vaalikone.EmClass;
 
 @Path("/riistaservice")
 public class EhdokkaatResti {
@@ -28,27 +32,26 @@ public class EhdokkaatResti {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Ehdokkaat getEhdokasId() {
 		System.out.println("Hei vain");
-		Ehdokkaat r=new Ehdokkaat();
+		Ehdokkaat r = new Ehdokkaat();
 		return r;
-		
-		
 	}
-	@POST
-	@Path("/ehdokas")
+
+	@GET
+	@Path("/kaikki")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Ehdokkaat postEhdokas(Ehdokkaat r) {
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikones");
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(r);
-		em.getTransaction().commit();
+	public ArrayList<Ehdokkaat> findAll() {
+		EntityManager em = EmClass.getEm();
+		Query query = em.createNamedQuery("Ehdokkaat.findAll",Ehdokkaat.class);
+		ArrayList<Ehdokkaat> results = (ArrayList<Ehdokkaat>) query.getResultList();
+		return results;
 		
-		System.out.println(r.getEhdokasId());
-		r.getEhdokasId();
-		r.getSukunimi();
-		r.getEtunimi();		
-		return r;
+		
+//		ArrayList<Ehdokkaat> lista = new ArrayList<>();
+//		for (int i = 0; i < 5; i++) {
+//			Ehdokkaat r = new Ehdokkaat();
+//			lista.add(r);
+//		}
+//		return lista;
 	}
 
 }
