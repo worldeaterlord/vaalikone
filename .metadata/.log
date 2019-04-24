@@ -10956,3 +10956,12 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-24 13:18:36.757
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-24 13:25:30.971
+!MESSAGE No repository found at http://download.eclipse.org/usssdk/drops/nightly/N940.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-24 13:25:34.531
+!MESSAGE No repository found at http://download.eclipse.org/egit/update.

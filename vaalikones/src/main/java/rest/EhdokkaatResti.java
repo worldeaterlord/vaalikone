@@ -38,12 +38,19 @@ public class EhdokkaatResti {
 	@Produces(MediaType.TEXT_HTML)
 	public String a() {
 		String b = "<html>"
+				+ "<head>"
+				+"</head>"
 				+ "<body>"
 				+ "<a href='http://localhost:8080/rest/ehd/kaikki'>"
 				+ "<input type='button' value='Visit kaikki' />"
 				+ "</a>"
+				+ "<br>"
+				+ "<br>"
+				+ "<form action='http://localhost:8080/rest/ehd/poista' method='post'/>"
+				+ "<input type='text' name='poista' />"
+				+ "<input type='submit' value='delete'"
 				+ "</body>"
-				+ "</head>";
+				;
 		return b;
 	}
 	
@@ -60,14 +67,13 @@ public class EhdokkaatResti {
 	}
 
 	@GET
-	@Path("/poista")
+	@Path("/poista/{param}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Ehdokkaat> poistaYksi() {
-		ArrayList<Ehdokkaat> lista = new ArrayList<>();
+	public void poistaYksi(@PathParam("param") String id) {
 			EntityManager em = EmClass.getEm();
-			Query query = em.createNamedQuery("Ehdokkaat.findAll");
+			String kysely = "delete from ehdokkaat where ehdokas_id="+id;
+			Query query = em.createNamedQuery(kysely);
+			query.executeUpdate();
 
-			lista.addAll(query.getResultList());
-			return lista;
 	}
 }
