@@ -10697,3 +10697,19 @@ java.lang.ClassNotFoundException: org.eclipse.jgit.lfs.BuiltinLFS cannot be foun
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:656)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:592)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1498)
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-04-24 10:57:14.182
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ioko'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-24 10:59:40.055
+!MESSAGE No repository found at http://download.eclipse.org/usssdk/drops/nightly/N940.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-04-24 10:59:42.213
+!MESSAGE No repository found at http://download.eclipse.org/egit/update.
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-24 11:04:45.235
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'

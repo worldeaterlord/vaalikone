@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Lisää puheenjohtajaehdokas tietokantaan</title>
-<link id="theme" href="style.css" rel="stylesheet" type="text/css">
+<link id="theme" href="jalkapallostyle.css" rel="stylesheet" type="text/css">
 <script src="skript.js"></script>
 </head>
 <body>

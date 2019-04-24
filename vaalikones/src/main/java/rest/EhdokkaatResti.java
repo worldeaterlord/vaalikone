@@ -21,6 +21,7 @@ import javax.ws.rs.core.Response;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import com.google.api.services.discovery.Discovery.Apis.List;
 import com.google.appengine.repackaged.com.google.gson.Gson;
 
 import persist.Ehdokkaat;
@@ -28,33 +29,36 @@ import vaalikone.EmClass;
 
 import model.AccessManager;
 
-@Path("/ehdokkaatResti")
+@Path("/ehd")
 public class EhdokkaatResti {
-
-	@GET
-	@Path("/riista")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Ehdokkaat getEhdokasId() {
-		System.out.println("Hei vain");
-		Ehdokkaat r = new Ehdokkaat();
-		return r;
-	}
 
 	@GET
 	@Path("/kaikki")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Ehdokkaat> findAll() {
-		EntityManager em = EmClass.getEm();
-		Query query = em.createNamedQuery("Ehdokkaat.findAll",Ehdokkaat.class);
-		ArrayList<Ehdokkaat> results = (ArrayList<Ehdokkaat>) query.getResultList();
-		return results;
+	public ArrayList<Ehdokkaat> getKaikki() {
+		ArrayList<Ehdokkaat> lista = new ArrayList<>();
+		{
+			EntityManager em = EmClass.getEm();
+			Query query = em.createNamedQuery("Ehdokkaat.findAll");
 
+			lista.addAll(query.getResultList());
+			return lista;
+			
+			
+		}
+	}
+	
+	@GET
+	@Path("/poista")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Ehdokkaat> poistaYksi() {
+		ArrayList<Ehdokkaat> lista = new ArrayList<>();
+		{
+			EntityManager em = EmClass.getEm();
+			Query query = em.createNamedQuery("Ehdokkaat.findAll");
 
-//		ArrayList<Ehdokkaat> lista = new ArrayList<>();
-//		for (int i = 0; i < 5; i++) {
-//			Ehdokkaat r = new Ehdokkaat();
-//			lista.add(r);
-//		}
-//		return lista;
+			lista.addAll(query.getResultList());
+			return lista;
+		}
 	}
-	}
+}
