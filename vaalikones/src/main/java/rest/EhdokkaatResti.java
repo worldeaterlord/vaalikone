@@ -14,6 +14,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.validation.constraints.Size;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
@@ -43,11 +47,11 @@ public class EhdokkaatResti {
 
 			lista.addAll(query.getResultList());
 			return lista;
-			
-			
+
+
 		}
 	}
-	
+
 	@GET
 	@Path("/poista")
 	@Produces(MediaType.APPLICATION_JSON)
