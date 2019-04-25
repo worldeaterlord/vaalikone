@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<form id="tiedot" onsubmit="return false">
+	<input type="text" name="EHDOKAS_ID" value="">
+	<input type="text" name="ETUNIMI" value="">
+	<input type="text" name="SUKUNIMI" value="">
+	<input type="text" name="PUOLUE" value="">
+	<input type="text" name="KOTIPAIKKAKUNTA" value="">
+	<input type="text" name="IKA" value="">
+	<input type="text" name="MIKSI_EDUSKUNTAAN" value="">
+	<input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value="">
+	<input type="text" name="AMMATTI" value="">
+
+	</form>
+	<button onclick="Lue()">Lue</button>
+	<div id="a"></div>
+
+	<script>
+		function Lue(){
+			var tiedot = document.getElementById("tiedot");
+			var ehdokas = {};
+			
+			ehdokas.EHDOKAS_ID = tiedot.EHDOKAS_ID.value;
+			ehdokas.ETUNIMI = tiedot.ETUNIMI.value;
+			ehdokas.SUKUNIMI = tiedot.SUKUNIMI.value;
+			ehdokas.PUOLUE = tiedot.PUOLUE.value;
+			ehdokas.KOTIPAIKKAKUNTA = tiedot.KOTIPAIKKAKUNTA.value;
+			ehdokas.IKA = tiedot.IKA.value;
+			ehdokas.MIKSI_EDUSKUNTAAN = tiedot.MIKSI_EDUSKUNTAAN.value;
+			ehdokas.MITA_ASIOITA_HALUAT_EDISTAA = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
+			ehdokas.AMMATTI = tiedot.AMMATTI.value;
+			
+			JSON ehdokas = JSON.stringify(ehdokas);
+			
+			document.getElementById("a").innerHTML=ehdokas;
+			console.log("aaa")
+		}
+	</script>
+
+</body>
+</html>
