@@ -45,7 +45,6 @@ public class EhdokkaatResti {
 				+ "<input type='button' value='Visit kaikki' />"
 				+ "</a>"
 				+ "<br>"
-				+ "<br>"
 				+ "<form action='http://localhost:8080/rest/ehd/poista' method='post'/>"
 				+ "<input type='text' name='poista' />"
 				+ "<input type='submit' value='delete'"
