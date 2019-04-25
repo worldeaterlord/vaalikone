@@ -23,7 +23,7 @@
 	<script>
 		function Lue(){
 			var tiedot = document.getElementById("tiedot");
-			var ehdokas = {};
+			var ehdokas = new Object();
 			
 			ehdokas.EHDOKAS_ID = tiedot.EHDOKAS_ID.value;
 			ehdokas.ETUNIMI = tiedot.ETUNIMI.value;
@@ -35,10 +35,10 @@
 			ehdokas.MITA_ASIOITA_HALUAT_EDISTAA = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
 			ehdokas.AMMATTI = tiedot.AMMATTI.value;
 			
-			JSON ehdokas = JSON.stringify(ehdokas);
+			var asd = JSON.stringify(ehdokas);
 			
-			document.getElementById("a").innerHTML=ehdokas;
-			console.log("aaa")
+			document.getElementById("a").innerHTML=asd;
+
 		}
 	</script>
 
