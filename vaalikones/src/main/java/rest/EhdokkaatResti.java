@@ -47,7 +47,11 @@ public class EhdokkaatResti {
 				+ "</a>"
 				+ "<br>"
 <<<<<<< HEAD
+<<<<<<< HEAD
 				+ "Poista ehdokas"
+=======
+				+ "<br>"
+>>>>>>> parent of 68934d1... Lisätty lisääEhdokas-->Toiminta ei vielä kunnossa
 =======
 				+ "<br>"
 >>>>>>> parent of 68934d1... Lisätty lisääEhdokas-->Toiminta ei vielä kunnossa
