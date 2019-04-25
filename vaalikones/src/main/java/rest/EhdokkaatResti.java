@@ -34,35 +34,6 @@ import vaalikone.EmClass;
 @Path("/ehd")
 public class EhdokkaatResti {
 
-	/*
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	public String a() {
-		String b = "<html>"
-				+ "<head>"
-				+"</head>"
-				+ "<body>"
-				+ "<a href='http://localhost:8080/rest/ehd/kaikki'>"
-				+ "<input type='button' value='Visit kaikki' />"
-				+ "</a>"
-				+ "<br>"
-<<<<<<< HEAD
-<<<<<<< HEAD
-				+ "Poista ehdokas"
-=======
-				+ "<br>"
->>>>>>> parent of 68934d1... Lisätty lisääEhdokas-->Toiminta ei vielä kunnossa
-=======
-				+ "<br>"
->>>>>>> parent of 68934d1... Lisätty lisääEhdokas-->Toiminta ei vielä kunnossa
-				+ "<form action='http://localhost:8080/rest/ehd/poista' method='post'/>"
-				+ "<input type='text' name='poista' />"
-				+ "<input type='submit' value='delete'"
-				+ "</body>"
-				;
-		return b;
-	}
-	*/
 	@GET
 	@Path("/kaikki")
 	@Produces(MediaType.APPLICATION_JSON)
