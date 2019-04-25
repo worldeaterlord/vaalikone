@@ -56,4 +56,13 @@ public class EhdokkaatResti {
 			query.executeUpdate();
 
 	}
+	@POST
+	@Path("/a")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void abc(Ehdokkaat e) {
+		
+		System.out.println(e);
+		
+	}
+
 }
