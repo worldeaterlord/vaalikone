@@ -60,8 +60,15 @@ public class EhdokkaatResti {
 	@Path("/a")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void abc(Ehdokkaat e) throws Exception {
-		
-		System.out.println(e);
+		try {
+		EntityManager em = EmClass.getEm();
+		em.getTransaction().begin();
+		em.merge(e);
+		em.getTransaction().commit();
+		}catch(Exception t){
+			System.out.println(e.getEtunimi());
+		}
+		System.out.println(e.getEtunimi());
 	}
 
 }
