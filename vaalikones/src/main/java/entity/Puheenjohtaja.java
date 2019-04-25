@@ -8,6 +8,7 @@ import javax.persistence.*;
  * The persistent class for the puheenjohtaja database table.
  * 
  */
+/*
 @Entity
 @NamedQuery(name="Puheenjohtaja.findAll", query="SELECT p FROM Puheenjohtaja p")
 public class Puheenjohtaja implements Serializable {
@@ -69,3 +70,4 @@ public class Puheenjohtaja implements Serializable {
 	}
 
 }
+*/

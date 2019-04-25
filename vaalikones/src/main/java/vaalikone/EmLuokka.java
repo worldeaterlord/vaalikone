@@ -38,6 +38,7 @@ public class EmLuokka extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
 		EntityManager em = EmClass.getEm();
 		EntityTransaction entitytransaction = em.getTransaction();
 		entitytransaction.begin();
@@ -54,6 +55,7 @@ public class EmLuokka extends HttpServlet {
 		em.persist(pj);
 		em.getTransaction().commit();
 		response.sendRedirect(request.getContextPath()+"/JalkapalloLisaa.jsp");
+		*/
 	}
 
 	/**
