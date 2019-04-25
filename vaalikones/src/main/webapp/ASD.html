@@ -6,12 +6,12 @@
 </head>
 <body>
 	<form id="tiedot" onsubmit="return false">
-		<input type="text" name="EHDOKAS_ID" value=""> 
-		<input type="text" name="ETUNIMI" value=""> 
+		<input type="text" name="EHDOKAS_ID" value=0> 
 		<input type="text" name="SUKUNIMI" value=""> 
+		<input type="text" name="ETUNIMI" value=""> 
 		<input type="text" name="PUOLUE" value=""> 
 		<input type="text" name="KOTIPAIKKAKUNTA" value="">
-		<input type="text" name="IKA" value=""> 
+		<input type="text" name="IKA" value=0> 
 		<input type="text" name="MIKSI_EDUSKUNTAAN" value=""> 
 		<input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> 
 		<input type="text" name="AMMATTI" value="">
@@ -25,15 +25,15 @@
 			var tiedot = document.getElementById("tiedot");
 			var ehdokas = new Object();
 
-			ehdokas.EHDOKAS_ID = tiedot.EHDOKAS_ID.value;
-			ehdokas.ETUNIMI = tiedot.ETUNIMI.value;
-			ehdokas.SUKUNIMI = tiedot.SUKUNIMI.value;
-			ehdokas.PUOLUE = tiedot.PUOLUE.value;
-			ehdokas.KOTIPAIKKAKUNTA = tiedot.KOTIPAIKKAKUNTA.value;
-			ehdokas.IKA = tiedot.IKA.value;
-			ehdokas.MIKSI_EDUSKUNTAAN = tiedot.MIKSI_EDUSKUNTAAN.value;
-			ehdokas.MITA_ASIOITA_HALUAT_EDISTAA = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
-			ehdokas.AMMATTI = tiedot.AMMATTI.value;
+			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
+			ehdokas.sukunimi = tiedot.SUKUNIMI.value;
+			ehdokas.etunimi = tiedot.ETUNIMI.value;
+			ehdokas.puolue = tiedot.PUOLUE.value;
+			ehdokas.kotipaikkakunta = tiedot.KOTIPAIKKAKUNTA.value;
+			ehdokas.ika = tiedot.IKA.value;
+			ehdokas.miksiEduskuntaan = tiedot.MIKSI_EDUSKUNTAAN.value;
+			ehdokas.mitaAsioitaHaluatEdistaa = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
+			ehdokas.ammatti = tiedot.AMMATTI.value;
 
 			var asd = JSON.stringify(ehdokas);
 
@@ -42,9 +42,9 @@
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST","./rest/ehd/a",true);
 
-			xhttp.setRequestHeader("Data-type","json");
+			xhttp.setRequestHeader("Content-type","application/json");
 			xhttp.send(asd);
-			console.log("A");
+
 		}
 
 	</script>

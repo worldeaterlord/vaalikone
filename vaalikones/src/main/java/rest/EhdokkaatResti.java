@@ -59,10 +59,9 @@ public class EhdokkaatResti {
 	@POST
 	@Path("/a")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void abc(Ehdokkaat e) {
+	public void abc(Ehdokkaat e) throws Exception {
 		
 		System.out.println(e);
-		
 	}
 
 }
