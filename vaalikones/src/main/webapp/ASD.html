@@ -44,36 +44,6 @@
 	</form>
 	<button onclick="Lue()">Muokkaa ehdokasta</button>
 	<div id="a"></div>
-
-	
-	<script>
-		function Lue() {
-			var tiedot = document.getElementById("tiedot");
-			var ehdokas = new Object();
-
-			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
-			ehdokas.sukunimi = tiedot.SUKUNIMI.value;
-			ehdokas.etunimi = tiedot.ETUNIMI.value;
-			ehdokas.puolue = tiedot.PUOLUE.value;
-			ehdokas.kotipaikkakunta = tiedot.KOTIPAIKKAKUNTA.value;
-			ehdokas.ika = tiedot.IKA.value;
-			ehdokas.miksiEduskuntaan = tiedot.MIKSI_EDUSKUNTAAN.value;
-			ehdokas.mitaAsioitaHaluatEdistaa = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
-			ehdokas.ammatti = tiedot.AMMATTI.value;
-
-			var asd = JSON.stringify(ehdokas);
-
-			document.getElementById("a").innerHTML = asd;
-			
-			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST","./rest/ehd/a",true);
-
-			xhttp.setRequestHeader("Content-type","application/json");
-			xhttp.send(asd);
-
-		}
-
-	</script>
 	
 		<br>
 	<h3>Ehdokkaan lisääminen</h3>
@@ -111,7 +81,11 @@
 	</form>
 	<button onclick="Lue()">Lisää ehdokas</button>
 	<div id="b"></div>
-
+	
+	<form id="del">
+		<input type="text" name="poistaid" placeholder="Ehdokas id">
+		<button onclick="setUrl()">Poista ehdokas</button>
+	</form>
 	
 	<script>
 		function Lue() {
@@ -142,5 +116,39 @@
 
 	</script>
 	
+	<script>
+	function setUrl(){
+		var url = document.getElementById("del");
+		
+	}
+	</script>
+	<script>
+		function Lue() {
+			var tiedot = document.getElementById("tiedot");
+			var ehdokas = new Object();
+
+			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
+			ehdokas.sukunimi = tiedot.SUKUNIMI.value;
+			ehdokas.etunimi = tiedot.ETUNIMI.value;
+			ehdokas.puolue = tiedot.PUOLUE.value;
+			ehdokas.kotipaikkakunta = tiedot.KOTIPAIKKAKUNTA.value;
+			ehdokas.ika = tiedot.IKA.value;
+			ehdokas.miksiEduskuntaan = tiedot.MIKSI_EDUSKUNTAAN.value;
+			ehdokas.mitaAsioitaHaluatEdistaa = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
+			ehdokas.ammatti = tiedot.AMMATTI.value;
+
+			var asd = JSON.stringify(ehdokas);
+
+			document.getElementById("a").innerHTML = asd;
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST","./rest/ehd/a",true);
+
+			xhttp.setRequestHeader("Content-type","application/json");
+			xhttp.send(asd);
+
+		}
+
+	</script>
 </body>
 </html>

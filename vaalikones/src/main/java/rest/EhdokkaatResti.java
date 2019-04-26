@@ -60,7 +60,7 @@ public class EhdokkaatResti {
 	@POST
 	@Path("/a")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void abc(Ehdokkaat e) throws Exception {
+	public void muokkaa(Ehdokkaat e) throws Exception {
 		try {
 		EntityManager em = EmClass.getEm();
 		em.getTransaction().begin();
