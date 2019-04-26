@@ -4,3 +4,4 @@
 *.container
 vaalikones/.classpath
 *.prefs
+.metadata/.log
