@@ -56,10 +56,26 @@ public class EhdokkaatResti {
 			query.executeUpdate();
 
 	}
+	//Ehdokkaan muokkaaminen
 	@POST
 	@Path("/a")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void abc(Ehdokkaat e) throws Exception {
+		try {
+		EntityManager em = EmClass.getEm();
+		em.getTransaction().begin();
+		em.merge(e);
+		em.getTransaction().commit();
+		}catch(Exception t){
+			System.out.println(e.getEtunimi());
+		}
+		System.out.println(e.getEtunimi());
+	}
+	//Ehdokkaan lisääminen
+	@POST
+	@Path("/b")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void lisaa(Ehdokkaat e) throws Exception {
 		try {
 		EntityManager em = EmClass.getEm();
 		em.getTransaction().begin();

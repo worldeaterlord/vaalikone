@@ -5,8 +5,14 @@
 <title></title>
 </head>
 <body>
-
-
+	<h1>EHDOKKAAT</h1>
+	<br>
+	
+	<h3>Näytä ehdokkaat: </h3>
+	<button onclick="window.location.href = 'http://localhost:8080/rest/ehd/kaikki';">Näytä ehdokkaat</button>
+	
+	<h3>Ehdokkaan muokkaaminen</h3>
+	<br>
 	<form id="tiedot" onsubmit="return false">
 		Ehdokas ID:<br>
 		<input type="text" name="EHDOKAS_ID" value=0> 
@@ -36,9 +42,10 @@
 		<input type="text" name="AMMATTI" value="">
 
 	</form>
-	<button onclick="Lue()">Lue</button>
+	<button onclick="Lue()">Muokkaa ehdokasta</button>
 	<div id="a"></div>
 
+	
 	<script>
 		function Lue() {
 			var tiedot = document.getElementById("tiedot");
@@ -67,6 +74,73 @@
 		}
 
 	</script>
+	
+		<br>
+	<h3>Ehdokkaan lisääminen</h3>
+	<br>
+	
+	
+	<form id="tiedot1" onsubmit="return false">
+		Ehdokas ID:<br>
+		<input type="text" name="EHDOKAS_ID" value=0> 
+		<br>
+		Sukunimi:<br>
+		<input type="text" name="SUKUNIMI" value=""> 
+		<br>
+		Etunimi:<br>
+		<input type="text" name="ETUNIMI" value="">
+		<br>
+		Puolue:<br> 
+		<input type="text" name="PUOLUE" value=""> 
+		<br>
+		Kotipaikkakunta:<br> 
+		<input type="text" name="KOTIPAIKKAKUNTA" value="">
+		<br>
+		Ikä:<br> 
+		<input type="text" name="IKA" value=0> 
+		<br>
+		Miksi Eduskuntaan:<br> 
+		<input type="text" name="MIKSI_EDUSKUNTAAN" value=""> 
+		<br>
+		Mitä Asioita haluat edistää:<br> 
+		<input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> 
+		<br>
+		Ammatti:<br> 
+		<input type="text" name="AMMATTI" value="">
 
+	</form>
+	<button onclick="Lue()">Lisää ehdokas</button>
+	<div id="b"></div>
+
+	
+	<script>
+		function Lue() {
+			var tiedot = document.getElementById("tiedot1");
+			var ehdokas = new Object();
+
+			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
+			ehdokas.sukunimi = tiedot.SUKUNIMI.value;
+			ehdokas.etunimi = tiedot.ETUNIMI.value;
+			ehdokas.puolue = tiedot.PUOLUE.value;
+			ehdokas.kotipaikkakunta = tiedot.KOTIPAIKKAKUNTA.value;
+			ehdokas.ika = tiedot.IKA.value;
+			ehdokas.miksiEduskuntaan = tiedot.MIKSI_EDUSKUNTAAN.value;
+			ehdokas.mitaAsioitaHaluatEdistaa = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
+			ehdokas.ammatti = tiedot.AMMATTI.value;
+
+			var asd = JSON.stringify(ehdokas);
+
+			document.getElementById("b").innerHTML = asd;
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST","./rest/ehd/b",true);
+
+			xhttp.setRequestHeader("Content-type","application/json");
+			xhttp.send(asd);
+
+		}
+
+	</script>
+	
 </body>
 </html>
