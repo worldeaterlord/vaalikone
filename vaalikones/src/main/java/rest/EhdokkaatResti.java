@@ -79,7 +79,7 @@ public class EhdokkaatResti {
 		try {
 		EntityManager em = EmClass.getEm();
 		em.getTransaction().begin();
-		em.merge(e);
+		em.persist(e);
 		em.getTransaction().commit();
 		}catch(Exception t){
 			System.out.println(e.getEtunimi());
