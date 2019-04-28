@@ -7,96 +7,69 @@
 <body>
 	<h1>EHDOKKAAT</h1>
 	<br>
-	
-	<h3>Näytä ehdokkaat: </h3>
-	<button onclick="window.location.href = 'http://localhost:8080/rest/ehd/kaikki';">Näytä ehdokkaat</button>
-	
+
+	<h3>Näytä ehdokkaat:</h3>
+	<button
+		onclick="window.location.href = 'http://localhost:8080/rest/ehd/kaikki';">Näytä
+		ehdokkaat</button>
+
 	<h3>Ehdokkaan muokkaaminen</h3>
 	<br>
 	<form id="tiedot" onsubmit="return false">
-		Ehdokas ID:<br>
-		<input type="text" name="EHDOKAS_ID" value=0> 
-		<br>
-		Sukunimi:<br>
-		<input type="text" name="SUKUNIMI" value=""> 
-		<br>
-		Etunimi:<br>
-		<input type="text" name="ETUNIMI" value="">
-		<br>
-		Puolue:<br> 
-		<input type="text" name="PUOLUE" value=""> 
-		<br>
-		Kotipaikkakunta:<br> 
-		<input type="text" name="KOTIPAIKKAKUNTA" value="">
-		<br>
-		Ikä:<br> 
-		<input type="text" name="IKA" value=0> 
-		<br>
-		Miksi Eduskuntaan:<br> 
-		<input type="text" name="MIKSI_EDUSKUNTAAN" value=""> 
-		<br>
-		Mitä Asioita haluat edistää:<br> 
-		<input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> 
-		<br>
-		Ammatti:<br> 
-		<input type="text" name="AMMATTI" value="">
+		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
+		<br> Sukunimi:<br> <input type="text" name="SUKUNIMI"
+			value=""> <br> Etunimi:<br> <input type="text"
+			name="ETUNIMI" value=""> <br> Puolue:<br> <input
+			type="text" name="PUOLUE" value=""> <br>
+		Kotipaikkakunta:<br> <input type="text" name="KOTIPAIKKAKUNTA"
+			value=""> <br> Ikä:<br> <input type="text"
+			name="IKA" value=0> <br> Miksi Eduskuntaan:<br> <input
+			type="text" name="MIKSI_EDUSKUNTAAN" value=""> <br> Mitä
+		Asioita haluat edistää:<br> <input type="text"
+			name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> <br>
+		Ammatti:<br> <input type="text" name="AMMATTI" value="">
 
 	</form>
 	<button onclick="Lue(t1)">Muokkaa ehdokasta</button>
 	<div id="a"></div>
 
-	
-	
-	
-		<br>
+
+
+
+	<br>
 	<h3>Ehdokkaan lisääminen</h3>
 	<br>
-	
-	
+
+
 	<form id="tiedot1" onsubmit="return false">
-		Ehdokas ID:<br>
-		<input type="text" name="EHDOKAS_ID" value=0> 
-		<br>
-		Sukunimi:<br>
-		<input type="text" name="SUKUNIMI" value=""> 
-		<br>
-		Etunimi:<br>
-		<input type="text" name="ETUNIMI" value="">
-		<br>
-		Puolue:<br> 
-		<input type="text" name="PUOLUE" value=""> 
-		<br>
-		Kotipaikkakunta:<br> 
-		<input type="text" name="KOTIPAIKKAKUNTA" value="">
-		<br>
-		Ikä:<br> 
-		<input type="text" name="IKA" value=0> 
-		<br>
-		Miksi Eduskuntaan:<br> 
-		<input type="text" name="MIKSI_EDUSKUNTAAN" value=""> 
-		<br>
-		Mitä Asioita haluat edistää:<br> 
-		<input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> 
-		<br>
-		Ammatti:<br> 
-		<input type="text" name="AMMATTI" value="">
+		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
+		<br> Sukunimi:<br> <input type="text" name="SUKUNIMI"
+			value=""> <br> Etunimi:<br> <input type="text"
+			name="ETUNIMI" value=""> <br> Puolue:<br> <input
+			type="text" name="PUOLUE" value=""> <br>
+		Kotipaikkakunta:<br> <input type="text" name="KOTIPAIKKAKUNTA"
+			value=""> <br> Ikä:<br> <input type="text"
+			name="IKA" value=0> <br> Miksi Eduskuntaan:<br> <input
+			type="text" name="MIKSI_EDUSKUNTAAN" value=""> <br> Mitä
+		Asioita haluat edistää:<br> <input type="text"
+			name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> <br>
+		Ammatti:<br> <input type="text" name="AMMATTI" value="">
 
 	</form>
 	<button onclick="Lue(t2)">Lisää ehdokas</button>
 	<div id="b"></div>
 
-	
 	<script>
 		var t2 = "t2";
-		var t1 = "t1"; 
+		var t1 = "t1";
 		function Lue(t) {
 			var tiedot;
 			var urli;
-			if (t===t1){
+			if (t === t1) {
 				tiedot = document.getElementById("tiedot");
 				urli = "./rest/ehd/a";
 			}
-			if (t===t2){
+			if (t === t2) {
 				tiedot = document.getElementById("tiedot1");
 				urli = "./rest/ehd/b";
 			}
@@ -113,25 +86,64 @@
 			ehdokas.ammatti = tiedot.AMMATTI.value;
 
 			var asd = JSON.stringify(ehdokas);
-			
+
 			//debug iffit
-			if (t===t1){
+			if (t === t1) {
 				document.getElementById("a").innerHTML = asd;
-			}else{
+			} else {
 				document.getElementById("b").innerHTML = asd;
 			}
-			
 
 			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST",urli,true);
+			xhttp.open("POST", urli, true);
 
-			xhttp.setRequestHeader("Content-type","application/json");
+			xhttp.setRequestHeader("Content-type", "application/json");
 			xhttp.send(asd);
 
 		}
-
 	</script>
-	
-	
+
+	<h3>Ehdokkaan poistaminen</h3>
+	<br>
+	<form id="tiedot3" onsubmit="return false">
+		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
+		<br>
+	</form>
+
+<button onclick="Lue(t3)" name = "poista">Poista Ehdokas </button>	
+<div id="c"></div>
+
+<script>
+		var t3 = "t3";
+
+		function Lue(t) {
+			var tiedot3;
+			var urli;
+			if (t === t3) {
+				tiedot = document.getElementById("tiedot3");
+				urli = "./rest/ehd/c";
+			}
+
+			var ehdokas = new Object();
+
+			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
+
+			var asd = JSON.stringify(ehdokas);
+
+			//debug iffit
+			if (t === t3) {
+				document.getElementById("c").innerHTML = asd;
+			} else {
+			}
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST", urli, true);
+
+			xhttp.setRequestHeader("Content-type", "application/json");
+			xhttp.send(asd);
+
+		}
+	</script>
+
 </body>
 </html>

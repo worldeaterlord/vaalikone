@@ -57,10 +57,10 @@ public class LoginHandler extends HttpServlet {
 		String p = request.getParameter("password");
 
 		if (LoginHandlerHelper.check(n, p)) {
-			response.sendRedirect(request.getContextPath() + "/AdminPage.jsp");
+			response.sendRedirect(request.getContextPath() + "/asd.html");
 			session.setAttribute("uname", n);
 		} else {
-			out.println("Käyttäjä tai salasana väärin!");
+			out.println("Kï¿½yttï¿½jï¿½ tai salasana vï¿½ï¿½rin!");
 			RequestDispatcher rd = request.getRequestDispatcher("index.html");
 			rd.include(request, response);
 		}
