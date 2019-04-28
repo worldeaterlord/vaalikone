@@ -89,6 +89,13 @@
 		<input type="text" name="poistaid" placeholder="Ehdokas id">
 		<button onclick="setUrl()">Poista ehdokas</button>
 	</form>
+	
+	<script>
+		function setUrl(){
+			var d = document.getElementById("del").value;
+			var url = "./rest/ehd/poista/" + d;
+		}
+	</script>
 
 	<script>
 		var t2 = "t2";

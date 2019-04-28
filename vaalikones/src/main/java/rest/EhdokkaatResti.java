@@ -52,7 +52,7 @@ public class EhdokkaatResti {
 	public void poistaYksi(@PathParam("param") String id) {
 			EntityManager em = EmClass.getEm();
 			String kysely = "delete from ehdokkaat where ehdokas_id="+id;
-			Query query = em.createNamedQuery(kysely);
+			Query query = em.createNativeQuery(kysely);
 			query.executeUpdate();
 
 	}
