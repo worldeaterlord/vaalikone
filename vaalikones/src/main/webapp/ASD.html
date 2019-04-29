@@ -9,12 +9,13 @@
 	<br>
 
 	<h3>Näytä ehdokkaat: </h3>
-	<button onclick="window.location.href = 'http://localhost:8080/rest/ehd/kaikki';">Näytä ehdokkaat</button>
-
-	<h3>Ehdokkaan muokkaaminen</h3>
+	<button onclick="show()">Näytä ehdokkaat</button>
+	<div id="kaikkiehdokkaatkentta"></div>
+	
+	<h3>Muokkaa tai lisää ehdokas</h3>
 	<br>
 	<form id="tiedot" onsubmit="return false">
-		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
+		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=1>
 		<br> Sukunimi:<br> <input type="text" name="SUKUNIMI"
 			value=""> <br> Etunimi:<br> <input type="text"
 			name="ETUNIMI" value=""> <br> Puolue:<br> <input
@@ -31,31 +32,10 @@
 	<button onclick="Lue(t1)">Muokkaa ehdokasta</button>
 	<div id="a"></div>
 
-
-
-
-		<br>
-	<h3>Ehdokkaan lisääminen</h3>
-	<br>
-
-
-	<form id="tiedot1" onsubmit="return false">
-		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
-		<br> Sukunimi:<br> <input type="text" name="SUKUNIMI"
-			value=""> <br> Etunimi:<br> <input type="text"
-			name="ETUNIMI" value=""> <br> Puolue:<br> <input
-			type="text" name="PUOLUE" value=""> <br>
-		Kotipaikkakunta:<br> <input type="text" name="KOTIPAIKKAKUNTA"
-			value=""> <br> Ikä:<br> <input type="text"
-			name="IKA" value=0> <br> Miksi Eduskuntaan:<br> <input
-			type="text" name="MIKSI_EDUSKUNTAAN" value=""> <br> Mitä
-		Asioita haluat edistää:<br> <input type="text"
-			name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> <br>
-		Ammatti:<br> <input type="text" name="AMMATTI" value="">
-
 	</form>
 	<button onclick="Lue(t2)">Lisää ehdokas</button>
 	<div id="b"></div>
+
 
 	<h3>Ehdokkaan poistaminen</h3>
 
@@ -82,19 +62,44 @@
 			
 		}
 	</script>
+	
+	<script>
+		function show(){
+			var url = "./rest/ehd/kaikki";
+			var xhttp = new XMLHttpRequest();
+			var setit = [];
+			xhttp.onreadystatechange = function() {
+				  if (this.readyState == 4 && this.status == 200) {
+					  jsn = JSON.parse(this.responseText);
 
+					  for (var i = 0;i <= jsn.length-1; i++){
+						  
+						  setit[i] = JSON.parse(this.responseText)[i];
+						  
+						  console.log(setit[i].etunimi);
+						  document.getElementById("kaikkiehdokkaatkentta").innerHTML +=
+							  "id: " + setit[i].ehdokasId + 
+							  " sukunimi: " + setit[i].sukunimi + 
+							  " etunimi: " +setit[i].etunimi + "<br>+";
+					  }
+				    
+				  }
+				};
+			xhttp.open("GET", url, true);
+			xhttp.send();
+		}
+	</script>
+	
 	<script>
 		var t2 = "t2";
 		var t1 = "t1";
 		function Lue(t) {
-			var tiedot;
+			var tiedot = document.getElementById("tiedot");
 			var urli;
 			if (t === t1) {
-				tiedot = document.getElementById("tiedot");
 				urli = "./rest/ehd/a";
 			}
 			if (t === t2) {
-				tiedot = document.getElementById("tiedot1");
 				urli = "./rest/ehd/b";
 			}
 			var ehdokas = new Object();
