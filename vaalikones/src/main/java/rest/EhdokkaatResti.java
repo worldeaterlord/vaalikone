@@ -71,13 +71,6 @@ public class EhdokkaatResti {
 		catch(Exception e) {
 			return error + e;
 		}
-			
-			
-			
-//			String kysely = "delete from ehdokkaat where ehdokas_id="+id;
-//			Query query = em.createNativeQuery(kysely);
-//			query.executeUpdate();
-
 	}
 
 	// Ehdokkaan muokkaaminen
