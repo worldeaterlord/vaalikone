@@ -55,12 +55,28 @@ public class EhdokkaatResti {
 	// Ehdokkaan poistaminen
 	@GET
 	@Path("/poista/{param}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public void poistaYksi(@PathParam("param") String id) {
+	@Produces(MediaType.TEXT_PLAIN)
+	public String poistaYksi(@PathParam("param") int id) {
+
+		String paluu = "Ehdokas id: " +id+ " poistettu onnistuneesti";
+		String error = "Error: ";
+		try {
 			EntityManager em = EmClass.getEm();
-			String kysely = "delete from ehdokkaat where ehdokas_id="+id;
-			Query query = em.createNativeQuery(kysely);
-			query.executeUpdate();
+			em.getTransaction().begin();
+			Ehdokkaat e=em.find(Ehdokkaat.class, id);
+			em.remove(e);
+			em.getTransaction().commit();
+			return paluu;
+		}
+		catch(Exception e) {
+			return error + e;
+		}
+			
+			
+			
+//			String kysely = "delete from ehdokkaat where ehdokas_id="+id;
+//			Query query = em.createNativeQuery(kysely);
+//			query.executeUpdate();
 
 	}
 

@@ -57,15 +57,24 @@
 	<button onclick="Lue(t2)">Lisää ehdokas</button>
 	<div id="b"></div>
 
-	<form id="del">
-		<input type="text" name="poistaid" placeholder="Ehdokas id">
+	<h3>Ehdokkaan poistaminen</h3>
+
+	<form id="del" onsubmit="return false">
+		<input type="text" name="poistaid" value="" placeholder="Ehdokas id">
 		<button onclick="setUrl()">Poista ehdokas</button>
 	</form>
-
+	
+	<div id="inner"></div>
+	
 	<script>
 		function setUrl(){
-			var d = document.getElementById("del").value;
+			var d = document.getElementById("del").poistaid.value;
 			var url = "./rest/ehd/poista/" + d;
+			
+				var xhttp = new XMLHttpRequest();
+				xhttp.open("GET", url, true);						
+				xhttp.send();
+			
 		}
 	</script>
 
@@ -114,7 +123,6 @@
 		}
 	</script>
 
-	<h3>Ehdokkaan poistaminen</h3>
 	<br>
 	<form id="tiedot3" onsubmit="return false">
 		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
