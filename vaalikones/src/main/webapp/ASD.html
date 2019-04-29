@@ -72,6 +72,11 @@
 			var url = "./rest/ehd/poista/" + d;
 			
 				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					  if (this.readyState == 4 && this.status == 200) {
+					    document.getElementById("demo").innerHTML = this.responseText;
+					  }
+					};
 				xhttp.open("GET", url, true);						
 				xhttp.send();
 			
@@ -124,46 +129,5 @@
 	</script>
 
 	<br>
-	<form id="tiedot3" onsubmit="return false">
-		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=0>
-		<br>
-	</form>
-
-<button onclick="Lue(t3)" name = "poista">Poista Ehdokas </button>
-<div id="c"></div>
-
-<script>
-		var t3 = "t3";
-
-		function Lue(t) {
-			var tiedot3;
-			var urli;
-			if (t === t3) {
-				tiedot = document.getElementById("tiedot3");
-				urli = "./rest/ehd/c";
-			}
-
-			var ehdokas = new Object();
-
-			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
-
-			var asd = JSON.stringify(ehdokas);
-
-			//debug iffit
-			if (t === t3) {
-				document.getElementById("c").innerHTML = asd;
-			} else {
-			}
-
-			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST", urli, true);
-
-			xhttp.setRequestHeader("Content-type", "application/json");
-			xhttp.send(asd);
-
-		}
-	</script>
-
-
 </body>
 </html>
