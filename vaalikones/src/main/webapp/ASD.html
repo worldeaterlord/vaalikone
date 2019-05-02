@@ -98,10 +98,11 @@
 					};
 				xhttp.open("GET", url, true);						
 				xhttp.send();
-				setTimeout(show(),3000);
+				setInterval(show(),5000);
 			
 		}
 	</script>
+
 	
 	<script>
 		function show(){
@@ -170,7 +171,7 @@
 
 			xhttp.setRequestHeader("Content-type", "application/json");
 			xhttp.send(asd);
-			setTimeout(show(),3000);
+			setInterval(show(),5000);
 
 		}
 		window.onload = _ =>
