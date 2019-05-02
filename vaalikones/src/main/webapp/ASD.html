@@ -31,6 +31,9 @@
   		bottom: 5%;
   		width: 100%;
   	}
+  	#inner, #del, #a, #b, #lButton, #mButton{
+  		float:left;
+  	}
   </style>
 </head>
 <body bgcolor="#E6E6FA">
@@ -66,12 +69,14 @@
 		Ammatti:<br> <input type="text" name="AMMATTI" value="">
 
 	</form>
-	<button onclick="Lue(t1)">Muokkaa ehdokasta</button>
-	<div id="a"></div>
+	
+	<br>
+	<button id="mButton" onclick="Lue(t1)">Muokkaa ehdokasta</button>
+	<div id="a"></div><br><br>
 
 	</form>
-	<button onclick="Lue(t2)">Lisää ehdokas</button>
-	<div id="b"></div>
+	<button id="lButton" onclick="Lue(t2)">Lisää ehdokas</button>
+	<div id="b"></div><br>
 
 
 	<h3>Ehdokkaan poistaminen</h3>
@@ -161,11 +166,16 @@
 
 			var asd = JSON.stringify(ehdokas);
 
-			//debug iffit
 			if (t === t1) {
 				document.getElementById("a").innerHTML = "Ehdokkaan tiedot muokattu!";
+				setTimeout(function(){
+					document.getElementById("a").innerHTML = "";
+				}, 4000);
 			} else {
 				document.getElementById("b").innerHTML = "Uusi ehdokas lisätty!";
+				setTimeout(function(){
+					document.getElementById("b").innerHTML = "";
+				}, 4000);
 			}
 
 
