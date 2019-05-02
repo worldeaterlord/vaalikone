@@ -31,7 +31,7 @@
   		bottom: 5%;
   		width: 100%;
   	}
-  	#inner, #del, #a, #b, #lButton, #mButton{
+  	#inner, #del, #a, #b, #lButton, #mButton, #delinput, #delbtn{
   		float:left;
   	}
   </style>
@@ -82,11 +82,12 @@
 	<h3>Ehdokkaan poistaminen</h3>
 
 	<form id="del" onsubmit="return false">
-		<input type="text" name="poistaid" value="" placeholder="Ehdokas id">
-		<button onclick="setUrl()">Poista ehdokas</button>
+		<input id="delinput" type="text" name="poistaid" value="" placeholder="Ehdokas id"><br><br>
+		<button id="delbtn" onclick="setUrl()">Poista ehdokas</button>
+		<div id="inner"></div>
 	</form>
 	
-	<div id="inner"></div>
+
 	<div id="footer">Robot3000</div>
 </div>
 	
