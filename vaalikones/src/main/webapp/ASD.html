@@ -98,14 +98,17 @@
 					};
 				xhttp.open("GET", url, true);						
 				xhttp.send();
-				setInterval(show(),5000);
-			
+				setTimeout(function(){
+					show()
+				}, 1000);
+
 		}
 	</script>
 
 	
 	<script>
 		function show(){
+			
 			var url = "./rest/ehd/kaikki";
 			var xhttp = new XMLHttpRequest();
 			var setit = [];
@@ -171,7 +174,10 @@
 
 			xhttp.setRequestHeader("Content-type", "application/json");
 			xhttp.send(asd);
-			setInterval(show(),5000);
+			setTimeout(function(){
+				show()
+			}, 1000);
+			
 
 		}
 		window.onload = _ =>
