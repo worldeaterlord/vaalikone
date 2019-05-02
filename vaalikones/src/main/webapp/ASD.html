@@ -4,19 +4,44 @@
 <meta charset="UTF-8">
 <title></title>
  <style>
+	body, html {
+		height: 100%;
+	}
     h1 { color: #FF0000; }
     h3 { color: #FF0000; }
+	#naytaehdokkaat{
+		float:right;
+		margin-right:5%;
+	}
+	#wrapper{
+	  	margin-right: auto; /* 1 */
+	  	margin-left:  auto; /* 1 */
+	
+	  	max-width: 960px; /* 2 */
+	
+	  	padding-right: 10px; /* 3 */
+		padding-left:  10px; /* 3 */
+		
+		background:#ffffff;
+		padding: 20px;
+		height: 90%;
+  	}
+  	#footer{
+		position: absolute;
+  		bottom: 5%;
+  		width: 100%;
+  	}
   </style>
 </head>
 <body bgcolor="#E6E6FA">
- 
+<div id="wrapper">
 	<h1>EHDOKKAAT</h1>
 	<br>
-
-	<h3>Näytä ehdokkaat: </h3>
-	<button onclick="show()">Näytä ehdokkaat</button>
-	<div id="kaikkiehdokkaatkentta"></div>
-	
+	<div id="naytaehdokkaat">
+		<h3>Ehdokkaat: </h3>
+		<!--  <button onclick="show()">Näytä ehdokkaat</button>-->
+		<div id="kaikkiehdokkaatkentta"></div>
+	</div>
 	
 	<h3>Muokkaa tai lisää ehdokas</h3>
 	<br>
@@ -57,6 +82,8 @@
 	</form>
 	
 	<div id="inner"></div>
+	<div id="footer">Robot3000</div>
+</div>
 	
 	<script>
 		function setUrl(){
@@ -71,6 +98,7 @@
 					};
 				xhttp.open("GET", url, true);						
 				xhttp.send();
+				setTimeout(show(),3000);
 			
 		}
 	</script>
@@ -80,6 +108,8 @@
 			var url = "./rest/ehd/kaikki";
 			var xhttp = new XMLHttpRequest();
 			var setit = [];
+			document.getElementById("kaikkiehdokkaatkentta").innerHTML = "";
+			
 			xhttp.onreadystatechange = function() {
 				  if (this.readyState == 4 && this.status == 200) {
 					  jsn = JSON.parse(this.responseText);
@@ -88,17 +118,16 @@
 						  
 						  setit[i] = JSON.parse(this.responseText)[i];
 						  
-						  console.log(setit[i].etunimi);
 						  document.getElementById("kaikkiehdokkaatkentta").innerHTML +=
-							  "Ehdokas ID: " + setit[i].ehdokasId + 
-							  " Sukunimi: " + setit[i].sukunimi + 
-							  "   Etunimi: " +setit[i].etunimi + "<br>";
+							  "Ehdokas ID: " + setit[i].ehdokasId +  
+							  "    Nimi: " + setit[i].sukunimi + " " + setit[i].etunimi + "<br>";
 					  }
 				    
 				  }
 				};
 			xhttp.open("GET", url, true);
 			xhttp.send();
+			
 		}
 	</script>
 	
@@ -141,8 +170,12 @@
 
 			xhttp.setRequestHeader("Content-type", "application/json");
 			xhttp.send(asd);
+			setTimeout(show(),3000);
 
 		}
+		window.onload = _ =>
+			show();
+		 
 	</script>
 
 	<br>
