@@ -7,65 +7,86 @@
 
 </head>
 <body bgcolor="#E6E6FA">
-<div id="wrapper">
-	<h1>EHDOKKAAT</h1>
-	<br>
-	<div id="naytaehdokkaat">
-		<h3>Ehdokkaat: </h3>
-		<!--  <button onclick="show()">Näytä ehdokkaat</button>-->
-		<div id="kaikkiehdokkaatkentta"></div><br>
+	<div id="wrapper">
+		<div>
+			<h1>EHDOKKAAT</h1>
+			<br>
+			<div id="naytaehdokkaat">
+				<h3>Ehdokkaat:</h3>
+				<!--  <button onclick="show()">Näytä ehdokkaat</button>-->
+				<div id="kaikkiehdokkaatkentta"></div>
+				<br>
+			</div>
 
-		<h3>Kysymykset: </h3>
-		<button onclick="kys()">Kyssärit</button>
-		<div id="kaikkikysymyksetkentta"></div><br>
+			<h3>Muokkaa tai lisää ehdokas</h3>
+			<br>
+			<form id="tiedot" onsubmit="return false">
+				Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=1>
+				<br> Sukunimi:<br> <input type="text" name="SUKUNIMI"
+					value=""> <br> Etunimi:<br> <input type="text"
+					name="ETUNIMI" value=""> <br> Puolue:<br> <input
+					type="text" name="PUOLUE" value=""> <br>
+				Kotipaikkakunta:<br> <input type="text" name="KOTIPAIKKAKUNTA"
+					value=""> <br> Ikä:<br> <input type="text"
+					name="IKA" value=0> <br> Miksi Eduskuntaan:<br> <input
+					type="text" name="MIKSI_EDUSKUNTAAN" value=""> <br>
+				Mitä Asioita haluat edistää:<br> <input type="text"
+					name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> <br>
+				Ammatti:<br> <input type="text" name="AMMATTI" value="">
+
+			</form>
+
+			<br>
+			<button id="mButton" onclick="Lue(t1)">Muokkaa ehdokasta</button>
+			<div id="a"></div>
+			<br>
+			<br>
+			<button id="lButton" onclick="Lue(t2)">Lisää ehdokas</button>
+			<div id="b"></div>
+			<br>
+
+
+
+			<h3>Ehdokkaan poistaminen</h3>
+			<form id="del" onsubmit="return false">
+				<input id="delinput" type="text" name="poistaid" value=""
+					placeholder="Ehdokas id"><br>
+				<br>
+				<button id="delbtn" onclick="setUrl()">Poista ehdokas</button>
+				<div id="inner"></div>
+			</form>
+		</div>
+		<div id="kysymysjutut"></div>
+		<h3>Kysymykset:</h3>
+		<div id="kaikkikysymyksetkentta"></div>
+		<br>
+
+		<form id="kyssarit" onsubmit="return false">
+			Kysymys ID:<br> <input type="text" name="KYSYMYS_ID" value=1><br>
+			<br> Kysymys:<br> <input type="text" name="KYSYMYS"
+				value=""><br>
+			<br>
+			<button id="mNappi" onclick="lueKys(f1)">Muokkaa Kysymys</button>
+			<br>
+			<br>
+			<div id="c"></div>
+			<button id="lNappi" onclick="lueKys(f2)">Lisää Kysymys</button>
+			<br>
+			<br>
+			<div id="d"></div>
+		</form>
+
+		<form id="delKys" onsubmit="return false">
+			<input id="delKysInput" type="text" name="poistaKysymys" value=""
+				placeholder="Kysymys id"><br>
+			<br>
+			<button id="delKysBtn" onclick="poistaKys()">Poista kysymys</button>
+			<div id="innerKys"></div>
+		</form>
+
+		<div id="footer">Robot3000</div>
 	</div>
-
-	<h3>Muokkaa tai lisää ehdokas</h3>
-	<br>
-	<form id="tiedot" onsubmit="return false">
-		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=1>
-		<br>
-		Sukunimi:<br> <input type="text" name="SUKUNIMI"value="">
-		<br>
-		Etunimi:<br> <input type="text"
-		name="ETUNIMI" value="">
-		<br>
-		Puolue:<br> <input type="text" name="PUOLUE" value="">
-		<br>
-		Kotipaikkakunta:<br> <input type="text" name="KOTIPAIKKAKUNTA"value="">
-		<br>
-		Ikä:<br> <input type="text"name="IKA" value=0>
-		<br>
-		Miksi Eduskuntaan:<br> <input type="text" name="MIKSI_EDUSKUNTAAN" value="">
-		<br>
-		Mitä Asioita haluat edistää:<br> <input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value="">
-		<br>
-		Ammatti:<br> <input type="text" name="AMMATTI" value="">
-
-	</form>
-
-	<br>
-	<button id="mButton" onclick="Lue(t1)">Muokkaa ehdokasta</button>
-	<div id="a"></div><br><br>
-
-	</form>
-	<button id="lButton" onclick="Lue(t2)">Lisää ehdokas</button>
-	<div id="b"></div><br>
-
-
-	<h3>Ehdokkaan poistaminen</h3>
-
-	<form id="del" onsubmit="return false">
-		<input id="delinput" type="text" name="poistaid" value="" placeholder="Ehdokas id"><br><br>
-		<button id="delbtn" onclick="setUrl()">Poista ehdokas</button>
-		<div id="inner"></div>
-	</form>
-
-
-
-	<div id="footer">Robot3000</div>
-</div>
-<script src="restjs.js"></script>
+	<script src="restjs.js"></script>
 	<br>
 </body>
 </html>
