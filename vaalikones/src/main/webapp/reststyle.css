@@ -1,0 +1,32 @@
+body, html {
+	height: 100%;
+	overflow-x: hidden;
+}
+   h1 { color: #FF0000; }
+   h3 { color: #FF0000; }
+#naytaehdokkaat{
+	float:right;
+	margin-right:5%;
+}
+#wrapper{
+  	margin-right: auto; /* 1 */
+  	margin-left:  auto; /* 1 */
+
+  	max-width: 960px; /* 2 */
+
+  	padding-right: 10px; /* 3 */
+	padding-left:  10px; /* 3 */
+	
+	background:#ffffff;
+	padding: 20px;
+	height: 90%;
+	}
+ 	#footer{
+	position: absolute;
+ 		bottom: 5%;
+ 		width: 100%;
+ 	}
+ 	#inner, #del, #a, #b, #lButton, #mButton, #delinput, #delbtn{
+ 		float:left;
+ 	}
+ 	
