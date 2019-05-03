@@ -38,34 +38,63 @@ import persist.Ehdokkaat;
 import persist.Kysymykset;
 import vaalikone.EmClass;
 
-@Path("/ehd")
-public class EhdokkaatResti {
-	// Näytetään kaikki ehdokkaat
+@Path("/kyss")
+public class KysymyksetResti {
+
+	// Kysymysten tulostaminen
 	@GET
-	@Path("/kaikki")
+	@Path("/kys")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Ehdokkaat> getKaikki() {
-		ArrayList<Ehdokkaat> lista = new ArrayList<>();
+	public ArrayList<Kysymykset> getKys() {
+		ArrayList<Kysymykset> kysLista = new ArrayList<>();
 		EntityManager em = EmClass.getEm();
-		Query query = em.createNamedQuery("Ehdokkaat.findAll");
-
-		lista.addAll(query.getResultList());
-		return lista;
+		Query query = em.createNamedQuery("Kysymykset.findAll");
+		kysLista.addAll(query.getResultList());
+		return kysLista;
 	}
-
-	// Ehdokkaan poistaminen
+	// Kysymysten muokkaaminen
+	@POST
+	@Path("/muokKys")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void muokkaaKys(Kysymykset e) throws Exception {
+		try {
+			EntityManager em = EmClass.getEm();
+			em.getTransaction().begin();
+			em.merge(e);
+			em.getTransaction().commit();
+		} catch (Exception t) {
+			System.out.println(e.getKysymys());
+		}
+		System.out.println(e.getKysymys());
+	}
+	//Kysymysten Lisääminen
+	@POST
+	@Path("/lisKys")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void lisaaKys(Kysymykset e) throws Exception {
+		try {
+			EntityManager em = EmClass.getEm();
+			em.getTransaction().begin();
+			em.persist(e);
+			em.getTransaction().commit();
+		} catch (Exception t) {
+			System.out.println(e.getKysymys());
+		}
+		System.out.println(e.getKysymys());
+	}
+	// Kysymysten poistaminen
 	@GET
-	@Path("/poista/{param}")
+	@Path("/poistaKys/{param}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String poistaYksi(@PathParam("param") int id) {
+	public String poistaKysymys(@PathParam("param") int id) {
 
-		String paluu = "Ehdokas id: " + id + " poistettu onnistuneesti";
+		String paluu = "Kysymys: " + id + " poistettu onnistuneesti";
 		String error = "Error: ";
 		try {
 			EntityManager em = EmClass.getEm();
 			em.getTransaction().begin();
-			Ehdokkaat e = em.find(Ehdokkaat.class, id);
-			em.remove(e);
+			Kysymykset k = em.find(Kysymykset.class, id);
+			em.remove(k);
 			em.getTransaction().commit();
 			return paluu;
 		} catch (Exception e) {
@@ -73,35 +102,4 @@ public class EhdokkaatResti {
 		}
 	}
 
-	// Ehdokkaan muokkaaminen
-	@POST
-	@Path("/a")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void muokkaa(Ehdokkaat e) throws Exception {
-		try {
-			EntityManager em = EmClass.getEm();
-			em.getTransaction().begin();
-			em.merge(e);
-			em.getTransaction().commit();
-		} catch (Exception t) {
-			System.out.println(e.getEtunimi());
-		}
-		System.out.println(e.getEtunimi());
-	}
-
-	// Ehdokkaan lisääminen
-	@POST
-	@Path("/b")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void lisaa(Ehdokkaat e) throws Exception {
-		try {
-			EntityManager em = EmClass.getEm();
-			em.getTransaction().begin();
-			em.persist(e);
-			em.getTransaction().commit();
-		} catch (Exception t) {
-			System.out.println(e.getEtunimi());
-		}
-		System.out.println(e.getEtunimi());
-	}
 }

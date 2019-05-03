@@ -8,10 +8,10 @@ function lueKys(f){
 	var tiedot = document.getElementById("kyssarit");
 	var urli;
 	if (f === f1) {
-		urli = "./rest/ehd/muokKys";
+		urli = "./rest/kyss/muokKys";
 	}
 	if (f === f2) {
-		urli = "./rest/ehd/lisKys";
+		urli = "./rest/kyss/lisKys";
 	}
 	var kysymys = new Object();
 	
@@ -136,7 +136,7 @@ function setUrl(){
 
 function poistaKys(){
 	var x = document.getElementById("delKys").poistaKysymys.value;
-	var url = "./rest/ehd/poistaKys/" + x;
+	var url = "./rest/kyss/poistaKys/" + x;
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -156,7 +156,7 @@ function poistaKys(){
 
 function kys(){
 	
-	var url = "./rest/ehd/kys";
+	var url = "./rest/kyss/kys";
 	var xhttp = new XMLHttpRequest();
 	var arr = [];
 	document.getElementById("kaikkikysymyksetkentta").innerHTML = "";

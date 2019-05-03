@@ -45,45 +45,20 @@
 			<div id="b"></div>
 			<br>
 
-
-
 			<h3>Ehdokkaan poistaminen</h3>
 			<form id="del" onsubmit="return false">
 				<input id="delinput" type="text" name="poistaid" value=""
 					placeholder="Ehdokas id"><br>
 				<br>
 				<button id="delbtn" onclick="setUrl()">Poista ehdokas</button>
+				<br>
+				<br>
+				<h3>KYSYMYKSET</h3>
+				<button onclick="window.location.href = 'http://localhost:8080/ABC.html';">Kysymyksen muokkaamiseen</button>
 				<div id="inner"></div>
 			</form>
 		</div>
-		<div id="kysymysjutut"></div>
-		<h3>Kysymykset:</h3>
-		<div id="kaikkikysymyksetkentta"></div>
-		<br>
-
-		<form id="kyssarit" onsubmit="return false">
-			Kysymys ID:<br> <input type="text" name="KYSYMYS_ID" value=1><br>
-			<br> Kysymys:<br> <input type="text" name="KYSYMYS"
-				value=""><br>
-			<br>
-			<button id="mNappi" onclick="lueKys(f1)">Muokkaa Kysymys</button>
-			<br>
-			<br>
-			<div id="c"></div>
-			<button id="lNappi" onclick="lueKys(f2)">Lisää Kysymys</button>
-			<br>
-			<br>
-			<div id="d"></div>
-		</form>
-
-		<form id="delKys" onsubmit="return false">
-			<input id="delKysInput" type="text" name="poistaKysymys" value=""
-				placeholder="Kysymys id"><br>
-			<br>
-			<button id="delKysBtn" onclick="poistaKys()">Poista kysymys</button>
-			<div id="innerKys"></div>
-		</form>
-
+	
 		<div id="footer">Robot3000</div>
 	</div>
 	<script src="restjs.js"></script>
