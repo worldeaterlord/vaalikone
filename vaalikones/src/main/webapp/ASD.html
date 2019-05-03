@@ -6,6 +6,7 @@
  <style>
 	body, html {
 		height: 100%;
+		overflow-x: hidden;
 	}
     h1 { color: #FF0000; }
     h3 { color: #FF0000; }
@@ -43,7 +44,11 @@
 	<div id="naytaehdokkaat">
 		<h3>Ehdokkaat: </h3>
 		<!--  <button onclick="show()">Näytä ehdokkaat</button>-->
-		<div id="kaikkiehdokkaatkentta"></div>
+		<div id="kaikkiehdokkaatkentta"></div><br>
+		
+		<h3>Kysymykset: </h3>
+		<button onclick="kys()">Kyssärit</button>
+		<div id="kaikkikysymyksetkentta"></div><br>
 	</div>
 	
 	<h3>Muokkaa tai lisää ehdokas</h3>
@@ -86,6 +91,7 @@
 		<button id="delbtn" onclick="setUrl()">Poista ehdokas</button>
 		<div id="inner"></div>
 	</form>
+	
 	
 
 	<div id="footer">Robot3000</div>
@@ -131,6 +137,35 @@
 						  document.getElementById("kaikkiehdokkaatkentta").innerHTML +=
 							  "Ehdokas ID: " + setit[i].ehdokasId +  
 							  "    Nimi: " + setit[i].sukunimi + " " + setit[i].etunimi + "<br>";
+					  }
+				    
+				  }
+				};
+			xhttp.open("GET", url, true);
+			xhttp.send();
+			
+		}
+	</script>
+	
+	<script>
+		function kys(){
+			
+			var url = "./rest/ehd/kys";
+			var xhttp = new XMLHttpRequest();
+			var arr = [];
+			document.getElementById("kaikkikysymyksetkentta").innerHTML = "";
+			
+			xhttp.onreadystatechange = function() {
+				  if (this.readyState == 4 && this.status == 200) {
+					  jeison = JSON.parse(this.responseText);
+
+					  for (var i = 0;i <= jeison.length-1; i++){
+						  
+						  arr[i] = JSON.parse(this.responseText)[i];
+						  
+						  document.getElementById("kaikkikysymyksetkentta").innerHTML +=
+							  "Kysymys ID: " + arr[i].kysymysId +  
+							  "   Kysymys: " + arr[i].kysymys + "<br>";
 					  }
 				    
 				  }

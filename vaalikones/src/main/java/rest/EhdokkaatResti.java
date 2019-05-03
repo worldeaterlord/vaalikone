@@ -35,11 +35,12 @@ import com.google.cloud.sql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
 import persist.Ehdokkaat;
+import persist.Kysymykset;
 import vaalikone.EmClass;
 
 @Path("/ehd")
 public class EhdokkaatResti {
-	// Näytetään kaikki
+	// Näytetään kaikki ehdokkaat
 	@GET
 	@Path("/kaikki")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -50,6 +51,18 @@ public class EhdokkaatResti {
 
 		lista.addAll(query.getResultList());
 		return lista;
+	}
+	
+	//Kysymysten tulostaminen
+	@GET
+	@Path("/kys")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Kysymykset> getKys() {
+		ArrayList<Kysymykset> kysLista = new ArrayList<>();
+		EntityManager em = EmClass.getEm();
+		Query query = em.createNamedQuery("Kysymykset.findAll");
+		kysLista.addAll(query.getResultList());
+		return kysLista;
 	}
 
 	// Ehdokkaan poistaminen
@@ -65,6 +78,27 @@ public class EhdokkaatResti {
 			em.getTransaction().begin();
 			Ehdokkaat e=em.find(Ehdokkaat.class, id);
 			em.remove(e);
+			em.getTransaction().commit();
+			return paluu;
+		}
+		catch(Exception e) {
+			return error + e;
+		}
+	}
+	
+	// Ehdokkaan poistaminen
+	@GET
+	@Path("/poistakys/{param}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String poistaKysymys(@PathParam("param") int id) {
+
+		String paluu = "Kysymys: " +id+ " poistettu onnistuneesti";
+		String error = "Error: ";
+		try {
+			EntityManager em = EmClass.getEm();
+			em.getTransaction().begin();
+			Kysymykset k=em.find(Kysymykset.class, id);
+			em.remove(k);
 			em.getTransaction().commit();
 			return paluu;
 		}
