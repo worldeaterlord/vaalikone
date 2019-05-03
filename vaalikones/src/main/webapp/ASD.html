@@ -3,39 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
- <style>
-	body, html {
-		height: 100%;
-		overflow-x: hidden;
-	}
-    h1 { color: #FF0000; }
-    h3 { color: #FF0000; }
-	#naytaehdokkaat{
-		float:right;
-		margin-right:5%;
-	}
-	#wrapper{
-	  	margin-right: auto; /* 1 */
-	  	margin-left:  auto; /* 1 */
-	
-	  	max-width: 960px; /* 2 */
-	
-	  	padding-right: 10px; /* 3 */
-		padding-left:  10px; /* 3 */
-		
-		background:#ffffff;
-		padding: 20px;
-		height: 90%;
-  	}
-  	#footer{
-		position: absolute;
-  		bottom: 5%;
-  		width: 100%;
-  	}
-  	#inner, #del, #a, #b, #lButton, #mButton, #delinput, #delbtn{
-  		float:left;
-  	}
-  </style>
+<link rel="stylesheet" type="text/css" href="reststyle.css">
+
 </head>
 <body bgcolor="#E6E6FA">
 <div id="wrapper">
@@ -45,19 +14,19 @@
 		<h3>Ehdokkaat: </h3>
 		<!--  <button onclick="show()">Näytä ehdokkaat</button>-->
 		<div id="kaikkiehdokkaatkentta"></div><br>
-		
+
 		<h3>Kysymykset: </h3>
 		<button onclick="kys()">Kyssärit</button>
 		<div id="kaikkikysymyksetkentta"></div><br>
 	</div>
-	
+
 	<h3>Muokkaa tai lisää ehdokas</h3>
 	<br>
 	<form id="tiedot" onsubmit="return false">
 		Ehdokas ID:<br> <input type="text" name="EHDOKAS_ID" value=1>
 		<br>
-		Sukunimi:<br> <input type="text" name="SUKUNIMI"value=""> 
-		<br> 
+		Sukunimi:<br> <input type="text" name="SUKUNIMI"value="">
+		<br>
 		Etunimi:<br> <input type="text"
 		name="ETUNIMI" value="">
 		<br>
@@ -65,16 +34,16 @@
 		<br>
 		Kotipaikkakunta:<br> <input type="text" name="KOTIPAIKKAKUNTA"value="">
 		<br>
-		Ikä:<br> <input type="text"name="IKA" value=0> 
+		Ikä:<br> <input type="text"name="IKA" value=0>
 		<br>
-		Miksi Eduskuntaan:<br> <input type="text" name="MIKSI_EDUSKUNTAAN" value=""> 
+		Miksi Eduskuntaan:<br> <input type="text" name="MIKSI_EDUSKUNTAAN" value="">
 		<br>
-		Mitä Asioita haluat edistää:<br> <input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value=""> 
+		Mitä Asioita haluat edistää:<br> <input type="text" name="MITA_ASIOITA_HALUAT_EDISTAA" value="">
 		<br>
 		Ammatti:<br> <input type="text" name="AMMATTI" value="">
 
 	</form>
-	
+
 	<br>
 	<button id="mButton" onclick="Lue(t1)">Muokkaa ehdokasta</button>
 	<div id="a"></div><br><br>
@@ -91,146 +60,12 @@
 		<button id="delbtn" onclick="setUrl()">Poista ehdokas</button>
 		<div id="inner"></div>
 	</form>
-	
-	
+
+
 
 	<div id="footer">Robot3000</div>
 </div>
-	
-	<script>
-		function setUrl(){
-			var d = document.getElementById("del").poistaid.value;
-			var url = "./rest/ehd/poista/" + d;
-			
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-					  if (this.readyState == 4 && this.status == 200) {
-					    document.getElementById("inner").innerHTML = this.responseText;
-					  }
-					};
-				xhttp.open("GET", url, true);						
-				xhttp.send();
-				setTimeout(function(){
-					show()
-				}, 1000);
-
-		}
-	</script>
-
-	
-	<script>
-		function show(){
-			
-			var url = "./rest/ehd/kaikki";
-			var xhttp = new XMLHttpRequest();
-			var setit = [];
-			document.getElementById("kaikkiehdokkaatkentta").innerHTML = "";
-			
-			xhttp.onreadystatechange = function() {
-				  if (this.readyState == 4 && this.status == 200) {
-					  jsn = JSON.parse(this.responseText);
-
-					  for (var i = 0;i <= jsn.length-1; i++){
-						  
-						  setit[i] = JSON.parse(this.responseText)[i];
-						  
-						  document.getElementById("kaikkiehdokkaatkentta").innerHTML +=
-							  "Ehdokas ID: " + setit[i].ehdokasId +  
-							  "    Nimi: " + setit[i].sukunimi + " " + setit[i].etunimi + "<br>";
-					  }
-				    
-				  }
-				};
-			xhttp.open("GET", url, true);
-			xhttp.send();
-			
-		}
-	</script>
-	
-	<script>
-		function kys(){
-			
-			var url = "./rest/ehd/kys";
-			var xhttp = new XMLHttpRequest();
-			var arr = [];
-			document.getElementById("kaikkikysymyksetkentta").innerHTML = "";
-			
-			xhttp.onreadystatechange = function() {
-				  if (this.readyState == 4 && this.status == 200) {
-					  jeison = JSON.parse(this.responseText);
-
-					  for (var i = 0;i <= jeison.length-1; i++){
-						  
-						  arr[i] = JSON.parse(this.responseText)[i];
-						  
-						  document.getElementById("kaikkikysymyksetkentta").innerHTML +=
-							  "Kysymys ID: " + arr[i].kysymysId +  
-							  "   Kysymys: " + arr[i].kysymys + "<br>";
-					  }
-				    
-				  }
-				};
-			xhttp.open("GET", url, true);
-			xhttp.send();
-			
-		}
-	</script>
-	
-	<script>
-		var t2 = "t2";
-		var t1 = "t1";
-		function Lue(t) {
-			var tiedot = document.getElementById("tiedot");
-			var urli;
-			if (t === t1) {
-				urli = "./rest/ehd/a";
-			}
-			if (t === t2) {
-				urli = "./rest/ehd/b";
-			}
-			var ehdokas = new Object();
-
-			ehdokas.ehdokasId = tiedot.EHDOKAS_ID.value;
-			ehdokas.sukunimi = tiedot.SUKUNIMI.value;
-			ehdokas.etunimi = tiedot.ETUNIMI.value;
-			ehdokas.puolue = tiedot.PUOLUE.value;
-			ehdokas.kotipaikkakunta = tiedot.KOTIPAIKKAKUNTA.value;
-			ehdokas.ika = tiedot.IKA.value;
-			ehdokas.miksiEduskuntaan = tiedot.MIKSI_EDUSKUNTAAN.value;
-			ehdokas.mitaAsioitaHaluatEdistaa = tiedot.MITA_ASIOITA_HALUAT_EDISTAA.value;
-			ehdokas.ammatti = tiedot.AMMATTI.value;
-
-			var asd = JSON.stringify(ehdokas);
-
-			if (t === t1) {
-				document.getElementById("a").innerHTML = "Ehdokkaan tiedot muokattu!";
-				setTimeout(function(){
-					document.getElementById("a").innerHTML = "";
-				}, 4000);
-			} else {
-				document.getElementById("b").innerHTML = "Uusi ehdokas lisätty!";
-				setTimeout(function(){
-					document.getElementById("b").innerHTML = "";
-				}, 4000);
-			}
-
-
-			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST", urli, true);
-
-			xhttp.setRequestHeader("Content-type", "application/json");
-			xhttp.send(asd);
-			setTimeout(function(){
-				show()
-			}, 1000);
-			
-
-		}
-		window.onload = _ =>
-			show();
-		 
-	</script>
-
+<script src="restjs.js"></script>
 	<br>
 </body>
 </html>
