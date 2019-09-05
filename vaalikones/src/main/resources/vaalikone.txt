@@ -13,7 +13,7 @@ grant all on vaalikone.* to pena@localhost identified by 'kukkuu';
 drop database if exists vaalikone;
 
 -- create database vaalikone (just dropped)
-create database vaalikone;
+create database vaalikone character set utf8mb4 collate utf8mb4_unicode_ci;
 
 -- use the database
 use vaalikone;
