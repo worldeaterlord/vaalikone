@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="reststyle.css">
+
+</head>
+<body bgcolor="#E6E6FA">
+	<div id="wrapper">
+			
+		<div id="kysymysjutut"></div>
+		<h3>Kysymykset:</h3>
+		<div id="kaikkikysymyksetkentta"></div>
+		<br>
+
+		<form id="kyssarit" onsubmit="return false">
+			Kysymys ID:<br> <input type="text" name="KYSYMYS_ID" value=1><br>
+			<br> Kysymys:<br> <input type="text" name="KYSYMYS"
+				value=""><br>
+			<br>
+			<button id="mNappi" onclick="lueKys(f1)">Muokkaa Kysymys</button>
+			<br>
+			<br>
+			<div id="c"></div>
+			<button id="lNappi" onclick="lueKys(f2)">Lisää Kysymys</button>
+			<br>
+			<br>
+			<div id="d"></div>
+		</form>
+
+		<form id="delKys" onsubmit="return false">
+			<input id="delKysInput" type="text" name="poistaKysymys" value=""
+				placeholder="Kysymys id"><br>
+			<br>
+			<button id="delKysBtn" onclick="poistaKys()">Poista kysymys</button>
+			<div id="innerKys"></div>
+			<br>
+			<h3>Ehdokkaisiin</h3>
+			<button onclick="window.location.href = 'http://localhost:8080/ASD.html';">Takaisin ehdokkaisiin</button>
+		</form>
+
+		<div id="footer">Robot3000</div>
+	</div>
+	<script src="restjs.js"></script>
+	<br>
+</body>
+</html>

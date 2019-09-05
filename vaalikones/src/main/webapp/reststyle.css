@@ -19,14 +19,12 @@ body, html {
 	
 	background:#ffffff;
 	padding: 20px;
-	height: 90%;
 	}
  	#footer{
-	position: absolute;
  		bottom: 5%;
  		width: 100%;
  	}
  	#inner, #del, #a, #b, #lButton, #mButton, #delinput, #delbtn{
- 		float:left;
  	}
+
  	
