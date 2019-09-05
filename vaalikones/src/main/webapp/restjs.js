@@ -43,7 +43,7 @@ function Lue(t) {
 	xhttp.send(asd);
 	setTimeout(function(){
 		show()
-	}, 1000);
+	}, 500);
 	
 
 }
@@ -87,7 +87,7 @@ function setUrl(){
 		xhttp.send();
 		setTimeout(function(){
 			show()
-		}, 1000);
+		}, 500);
 
 }
 window.onload = _ =>
